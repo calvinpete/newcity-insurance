@@ -75,62 +75,203 @@
                 <h2>Get a Quote</h2>
               </div>
               <div class="card-body">
-                <form class="quote-form">
-                  <div class="form-row">
-                    <div class="form-group">
-                      <label for="trip-destination">Trip Destination</label>
-                      <select id="trip-destination" required>
-                        <option value="">Select destination</option>
-                        <option value="europe">Europe</option>
-                        <option value="asia">Asia</option>
-                        <option value="northamerica">North America</option>
-                        <option value="southamerica">South America</option>
-                        <option value="africa">Africa</option>
-                        <option value="oceania">Australia & Oceania</option>
-                      </select>
+                <!-- Tabs for multi-step form -->
+                <div class="quote-tabs">
+                  <ul>
+                    <li class="tab active" data-tab="trip"><span class="tab-number">1</span><span class="tab-text">Trip Details</span></li>
+                    <li class="tab" data-tab="travelers"><span class="tab-number">2</span><span class="tab-text">Travelers</span></li>
+                    <li class="tab" data-tab="coverage"><span class="tab-number">3</span><span class="tab-text">Coverage</span></li>
+                  </ul>
+                </div>
+                
+                <form class="quote-form" id="quote-form">
+                  <!-- Step 1: Trip Details (visible initially) -->
+                  <div class="tab-content active" id="trip">
+                    <div class="tab-title">Tell us about your trip</div>
+                    
+                    <div class="form-row">
+                      <div class="form-group">
+                        <label for="trip-type">Trip Type</label>
+                        <select id="trip-type" required>
+                          <option value="single">Single Trip</option>
+                          <option value="multi">Annual Multi-Trip</option>
+                          <option value="cruise">Cruise</option>
+                          <option value="adventure">Adventure/Sports</option>
+                        </select>
+                      </div>
+                    </div>
+                    
+                    <div class="form-row">
+                      <div class="form-group">
+                        <label for="trip-destination">Trip Destination</label>
+                        <select id="trip-destination" required>
+                          <option value="">Select destination</option>
+                          <option value="europe">Europe</option>
+                          <option value="asia">Asia</option>
+                          <option value="northamerica">North America</option>
+                          <option value="southamerica">South America</option>
+                          <option value="africa">Africa</option>
+                          <option value="oceania">Australia & Oceania</option>
+                        </select>
+                      </div>
+                    </div>
+                    
+                    <div class="form-row">
+                      <div class="form-group">
+                        <label for="departure-date">Departure Date</label>
+                        <input type="date" id="departure-date" required>
+                      </div>
+                      <div class="form-group">
+                        <label for="return-date">Return Date</label>
+                        <input type="date" id="return-date" required>
+                      </div>
+                    </div>
+                    
+                    <div class="form-row">
+                      <div class="form-group">
+                        <label for="trip-cost">Trip Cost (Optional)</label>
+                        <input type="text" id="trip-cost" placeholder="USD">
+                      </div>
+                      <div class="form-group">
+                        <div class="helper-text">Include all non-refundable costs paid before your trip.</div>
+                      </div>
+                    </div>
+                    
+                    <div class="form-actions">
+                      <button type="button" class="btn btn-primary btn-block next-tab" data-next="travelers">Continue to Travelers</button>
                     </div>
                   </div>
-                  <div class="form-row">
-                    <div class="form-group">
-                      <label for="departure-date">Departure Date</label>
-                      <input type="date" id="departure-date" required>
+                  
+                  <!-- Step 2: Travelers Information -->
+                  <div class="tab-content" id="travelers">
+                    <div class="tab-title">Tell us about your travelers</div>
+                    
+                    <div class="form-row">
+                      <div class="form-group">
+                        <label for="travelers-count">Number of Travelers</label>
+                        <select id="travelers-count" required>
+                          <option value="1">1</option>
+                          <option value="2">2</option>
+                          <option value="3">3</option>
+                          <option value="4">4</option>
+                          <option value="5">5</option>
+                          <option value="6+">6+</option>
+                        </select>
+                      </div>
                     </div>
-                    <div class="form-group">
-                      <label for="return-date">Return Date</label>
-                      <input type="date" id="return-date" required>
+                    
+                    <div id="travelers-list">
+                      <div class="traveler-details">
+                        <div class="traveler-title">Traveler 1</div>
+                        <div class="form-row">
+                          <div class="form-group">
+                            <label for="traveler-1-age">Age</label>
+                            <select id="traveler-1-age" required>
+                              <option value="0-17">0-17 years</option>
+                              <option value="18-30">18-30 years</option>
+                              <option value="31-40">31-40 years</option>
+                              <option value="41-50">41-50 years</option>
+                              <option value="51-60">51-60 years</option>
+                              <option value="61-70">61-70 years</option>
+                              <option value="71-80">71-80 years</option>
+                              <option value="81+">81+ years</option>
+                            </select>
+                          </div>
+                          <div class="form-group">
+                            <label>Primary Traveler?</label>
+                            <div class="checkbox-wrapper">
+                              <input type="checkbox" id="traveler-1-primary" checked>
+                              <label for="traveler-1-primary" class="checkbox-label">Yes, this is the primary traveler</label>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="form-row">
+                          <div class="form-group">
+                            <label>Resident of</label>
+                            <select id="traveler-1-residence" required>
+                              <option value="US">United States</option>
+                              <option value="CA">Canada</option>
+                              <option value="UK">United Kingdom</option>
+                              <option value="other">Other</option>
+                            </select>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    <div class="form-actions">
+                      <button type="button" class="btn btn-outline prev-tab" data-prev="trip">Previous</button>
+                      <button type="button" class="btn btn-primary next-tab" data-next="coverage">Continue to Coverage</button>
                     </div>
                   </div>
-                  <div class="form-row">
-                    <div class="form-group">
-                      <label for="travelers">Number of Travelers</label>
-                      <select id="travelers" required>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5+</option>
-                      </select>
+                  
+                  <!-- Step 3: Coverage Options -->
+                  <div class="tab-content" id="coverage">
+                    <div class="tab-title">Select your coverage needs</div>
+                    
+                    <div class="form-row">
+                      <div class="form-group full-width">
+                        <label class="section-label">What coverage is most important to you?</label>
+                        <div class="coverage-options">
+                          <div class="coverage-option">
+                            <input type="checkbox" id="coverage-trip-cancellation">
+                            <label for="coverage-trip-cancellation">Trip Cancellation</label>
+                            <span class="info-tooltip" title="Reimburses prepaid, non-refundable expenses if you need to cancel for a covered reason">i</span>
+                          </div>
+                          <div class="coverage-option">
+                            <input type="checkbox" id="coverage-medical">
+                            <label for="coverage-medical">Emergency Medical</label>
+                            <span class="info-tooltip" title="Covers medical expenses for illness or injury during your trip">i</span>
+                          </div>
+                          <div class="coverage-option">
+                            <input type="checkbox" id="coverage-evacuation">
+                            <label for="coverage-evacuation">Medical Evacuation</label>
+                            <span class="info-tooltip" title="Covers transportation to nearest adequate medical facility or home if necessary">i</span>
+                          </div>
+                          <div class="coverage-option">
+                            <input type="checkbox" id="coverage-delay">
+                            <label for="coverage-delay">Trip Delay</label>
+                            <span class="info-tooltip" title="Reimburses additional expenses if your trip is delayed for a covered reason">i</span>
+                          </div>
+                          <div class="coverage-option">
+                            <input type="checkbox" id="coverage-baggage">
+                            <label for="coverage-baggage">Baggage Loss/Delay</label>
+                            <span class="info-tooltip" title="Covers loss, damage, or delay of luggage and personal items">i</span>
+                          </div>
+                          <div class="coverage-option">
+                            <input type="checkbox" id="coverage-cfar">
+                            <label for="coverage-cfar">Cancel For Any Reason</label>
+                            <span class="info-tooltip" title="Optional upgrade that allows you to cancel for reasons not otherwise covered">i</span>
+                          </div>
+                        </div>
+                      </div>
                     </div>
-                    <div class="form-group">
-                      <label for="traveler-age">Oldest Traveler</label>
-                      <select id="traveler-age" required>
-                        <option value="0-17">0-17 years</option>
-                        <option value="18-30">18-30 years</option>
-                        <option value="31-40">31-40 years</option>
-                        <option value="41-50">41-50 years</option>
-                        <option value="51-60">51-60 years</option>
-                        <option value="61-70">61-70 years</option>
-                        <option value="71+">71+ years</option>
-                      </select>
+                    
+                    <div class="form-row">
+                      <div class="form-group full-width">
+                        <label>Do any travelers have pre-existing medical conditions?</label>
+                        <div class="radio-options">
+                          <div class="radio-option">
+                            <input type="radio" name="preexisting" id="preexisting-yes" value="yes">
+                            <label for="preexisting-yes">Yes</label>
+                          </div>
+                          <div class="radio-option">
+                            <input type="radio" name="preexisting" id="preexisting-no" value="no" checked>
+                            <label for="preexisting-no">No</label>
+                          </div>
+                          <div class="radio-option">
+                            <input type="radio" name="preexisting" id="preexisting-unsure" value="unsure">
+                            <label for="preexisting-unsure">Not Sure</label>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    <div class="form-actions">
+                      <button type="button" class="btn btn-outline prev-tab" data-prev="travelers">Previous</button>
+                      <button type="submit" class="btn btn-primary btn-block">Search Policies</button>
                     </div>
                   </div>
-                  <div class="form-row">
-                    <div class="form-group">
-                      <label for="trip-cost">Trip Cost (Optional)</label>
-                      <input type="text" id="trip-cost" placeholder="USD">
-                    </div>
-                  </div>
-                  <button type="submit" class="btn btn-primary btn-block">Search Policies</button>
                 </form>
               </div>
             </div>
@@ -334,6 +475,151 @@
     // Simple mobile menu toggle
     document.querySelector('.mobile-menu-toggle').addEventListener('click', function() {
       document.querySelector('.main-nav').classList.toggle('show');
+    });
+
+    // Quote form tab functionality
+    document.addEventListener('DOMContentLoaded', function() {
+      // Tab click handling
+      const tabs = document.querySelectorAll('.quote-tabs .tab');
+      tabs.forEach(tab => {
+        tab.addEventListener('click', function() {
+          const tabId = this.getAttribute('data-tab');
+          showTab(tabId);
+        });
+      });
+
+      // Next button handling
+      const nextButtons = document.querySelectorAll('.next-tab');
+      nextButtons.forEach(button => {
+        button.addEventListener('click', function() {
+          const nextTabId = this.getAttribute('data-next');
+          showTab(nextTabId);
+        });
+      });
+
+      // Previous button handling
+      const prevButtons = document.querySelectorAll('.prev-tab');
+      prevButtons.forEach(button => {
+        button.addEventListener('click', function() {
+          const prevTabId = this.getAttribute('data-prev');
+          showTab(prevTabId);
+        });
+      });
+
+      // Function to show tab
+      function showTab(tabId) {
+        // Hide all tab contents
+        document.querySelectorAll('.tab-content').forEach(content => {
+          content.classList.remove('active');
+        });
+
+        // Deactivate all tabs
+        document.querySelectorAll('.quote-tabs .tab').forEach(tab => {
+          tab.classList.remove('active');
+        });
+
+        // Show the selected tab content
+        document.getElementById(tabId).classList.add('active');
+
+        // Activate the tab button
+        document.querySelector(`.tab[data-tab="${tabId}"]`).classList.add('active');
+
+        // Scroll to top of form
+        document.querySelector('.quote-card').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      }
+
+      // Travelers count handling to show/hide additional traveler sections
+      const travelersCount = document.getElementById('travelers-count');
+      if (travelersCount) {
+        travelersCount.addEventListener('change', function() {
+          updateTravelerSections(parseInt(this.value, 10));
+        });
+      }
+
+      function updateTravelerSections(count) {
+        // Get the travelers list container
+        const travelersList = document.getElementById('travelers-list');
+        
+        // Store the first traveler as a template
+        const travelerTemplate = travelersList.querySelector('.traveler-details').cloneNode(true);
+        
+        // Clear the list
+        travelersList.innerHTML = '';
+        
+        // Add the appropriate number of traveler sections
+        for (let i = 1; i <= count; i++) {
+          const newTraveler = travelerTemplate.cloneNode(true);
+          
+          // Update IDs and labels
+          newTraveler.querySelector('.traveler-title').textContent = `Traveler ${i}`;
+          
+          // Update form element IDs to avoid duplicates
+          const inputs = newTraveler.querySelectorAll('input, select');
+          inputs.forEach(input => {
+            const originalId = input.id;
+            const newId = originalId.replace(/\d+/, i);
+            input.id = newId;
+            
+            // Update associated labels
+            const label = newTraveler.querySelector(`label[for="${originalId}"]`);
+            if (label) {
+              label.setAttribute('for', newId);
+            }
+          });
+          
+          // Only the first traveler should be checked as primary by default
+          const primaryCheckbox = newTraveler.querySelector(`#traveler-${i}-primary`);
+          if (primaryCheckbox) {
+            primaryCheckbox.checked = i === 1;
+          }
+          
+          travelersList.appendChild(newTraveler);
+        }
+      }
+
+      // Form submission handling
+      document.getElementById('quote-form').addEventListener('submit', function(e) {
+        e.preventDefault();
+        alert('Thank you for your submission! In a real application, this would take you to a page comparing insurance policies.');
+      });
+
+      // Info tooltips
+      const tooltips = document.querySelectorAll('.info-tooltip');
+      tooltips.forEach(tooltip => {
+        tooltip.addEventListener('mouseover', function() {
+          const title = this.getAttribute('title');
+          this.setAttribute('data-original-title', title);
+          this.removeAttribute('title');
+          
+          // Create tooltip element
+          const tooltipEl = document.createElement('div');
+          tooltipEl.className = 'tooltip-bubble';
+          tooltipEl.textContent = title;
+          document.body.appendChild(tooltipEl);
+          
+          // Position tooltip
+          const rect = this.getBoundingClientRect();
+          tooltipEl.style.top = `${rect.top - tooltipEl.offsetHeight - 10 + window.scrollY}px`;
+          tooltipEl.style.left = `${rect.left + (rect.width / 2) - (tooltipEl.offsetWidth / 2)}px`;
+          tooltipEl.style.opacity = '1';
+          
+          this._tooltipEl = tooltipEl;
+        });
+        
+        tooltip.addEventListener('mouseout', function() {
+          // Restore title attribute
+          if (this.getAttribute('data-original-title')) {
+            this.setAttribute('title', this.getAttribute('data-original-title'));
+            this.removeAttribute('data-original-title');
+          }
+          
+          // Remove tooltip element
+          if (this._tooltipEl) {
+            document.body.removeChild(this._tooltipEl);
+            this._tooltipEl = null;
+          }
+        });
+      });
     });
   </script>
 </body>
