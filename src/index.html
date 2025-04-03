@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Newcity - Compare Travel Insurance</title>
+  <meta name="description" content="Compare travel insurance policies from top providers and find the best coverage for your trip">
+  <link rel="stylesheet" href="styles.css">
+  <!-- Google Fonts - Inter -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  <div class="page-container">
+    <!-- Header -->
+    <header class="header">
+      <div class="container">
+        <div class="header-content">
+          <div class="logo">
+            <a href="/">
+              <h1>Newcity</h1>
+            </a>
+          </div>
+          <nav class="main-nav">
+            <ul>
+              <li><a href="#" class="active">Travel Insurance</a></li>
+              <li><a href="#">Claims</a></li>
+              <li><a href="#">Help Center</a></li>
+            </ul>
+          </nav>
+          <div class="header-right">
+            <div class="contact-info">
+              <i class="fas fa-phone"></i>
+              <span>800-555-1234</span>
+            </div>
+            <div class="account-links">
+              <a href="#" class="btn btn-outline">Log In</a>
+              <a href="#" class="btn btn-primary">Sign Up</a>
+            </div>
+          </div>
+          <button class="mobile-menu-toggle">
+            <i class="fas fa-bars"></i>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+      <!-- Hero Section -->
+      <section class="hero-section">
+        <div class="container">
+          <div class="hero-content">
+            <div class="hero-text">
+              <h1>Compare Travel Insurance</h1>
+              <p>Search, compare, and purchase travel insurance from the top providers - all in one place.</p>
+              <div class="hero-stats">
+                <div class="stat">
+                  <strong>40+</strong>
+                  <span>Insurance Providers</span>
+                </div>
+                <div class="stat">
+                  <strong>4.8/5</strong>
+                  <span>Customer Rating</span>
+                </div>
+                <div class="stat">
+                  <strong>12M+</strong>
+                  <span>Travelers Protected</span>
+                </div>
+              </div>
+            </div>
+            <div class="quote-card">
+              <div class="card-header">
+                <h2>Get a Quote</h2>
+              </div>
+              <div class="card-body">
+                <form class="quote-form">
+                  <div class="form-row">
+                    <div class="form-group">
+                      <label for="trip-destination">Trip Destination</label>
+                      <select id="trip-destination" required>
+                        <option value="">Select destination</option>
+                        <option value="europe">Europe</option>
+                        <option value="asia">Asia</option>
+                        <option value="northamerica">North America</option>
+                        <option value="southamerica">South America</option>
+                        <option value="africa">Africa</option>
+                        <option value="oceania">Australia & Oceania</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="form-row">
+                    <div class="form-group">
+                      <label for="departure-date">Departure Date</label>
+                      <input type="date" id="departure-date" required>
+                    </div>
+                    <div class="form-group">
+                      <label for="return-date">Return Date</label>
+                      <input type="date" id="return-date" required>
+                    </div>
+                  </div>
+                  <div class="form-row">
+                    <div class="form-group">
+                      <label for="travelers">Number of Travelers</label>
+                      <select id="travelers" required>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5+</option>
+                      </select>
+                    </div>
+                    <div class="form-group">
+                      <label for="traveler-age">Oldest Traveler</label>
+                      <select id="traveler-age" required>
+                        <option value="0-17">0-17 years</option>
+                        <option value="18-30">18-30 years</option>
+                        <option value="31-40">31-40 years</option>
+                        <option value="41-50">41-50 years</option>
+                        <option value="51-60">51-60 years</option>
+                        <option value="61-70">61-70 years</option>
+                        <option value="71+">71+ years</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="form-row">
+                    <div class="form-group">
+                      <label for="trip-cost">Trip Cost (Optional)</label>
+                      <input type="text" id="trip-cost" placeholder="USD">
+                    </div>
+                  </div>
+                  <button type="submit" class="btn btn-primary btn-block">Search Policies</button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Features Section -->
+      <section class="features-section">
+        <div class="container">
+          <div class="section-heading">
+            <h2>Why Choose Newcity?</h2>
+            <p>Finding the right travel insurance has never been easier</p>
+          </div>
+          <div class="features-grid">
+            <div class="feature-card">
+              <div class="feature-icon">
+                <i class="fas fa-search"></i>
+              </div>
+              <h3>Compare & Save</h3>
+              <p>Compare top-rated travel insurance policies to find the right coverage at the best price.</p>
+            </div>
+            <div class="feature-card">
+              <div class="feature-icon">
+                <i class="fas fa-shield-alt"></i>
+              </div>
+              <h3>Comprehensive Coverage</h3>
+              <p>Get coverage for trip cancellation, medical emergencies, lost baggage, and more.</p>
+            </div>
+            <div class="feature-card">
+              <div class="feature-icon">
+                <i class="fas fa-star"></i>
+              </div>
+              <h3>Trusted Reviews</h3>
+              <p>Read verified customer reviews to help you make an informed decision.</p>
+            </div>
+            <div class="feature-card">
+              <div class="feature-icon">
+                <i class="fas fa-headset"></i>
+              </div>
+              <h3>24/7 Support</h3>
+              <p>Our dedicated support team is available around the clock to assist you.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Testimonials Section -->
+      <section class="testimonials-section">
+        <div class="container">
+          <div class="section-heading">
+            <h2>What Our Customers Say</h2>
+            <p>Join thousands of satisfied travelers who found their perfect travel insurance policy</p>
+          </div>
+          <div class="testimonials-grid">
+            <div class="testimonial-card">
+              <div class="testimonial-rating">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+              </div>
+              <p class="testimonial-text">"Made finding travel insurance so easy! The comparison tool saved me both time and money. Highly recommend."</p>
+              <div class="testimonial-author">
+                <span class="author-name">Sarah J.</span>
+                <span class="author-trip">Trip to Spain</span>
+              </div>
+            </div>
+            <div class="testimonial-card">
+              <div class="testimonial-rating">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+              </div>
+              <p class="testimonial-text">"Had to file a claim when my flight was cancelled. The process was smooth and the customer service was exceptional."</p>
+              <div class="testimonial-author">
+                <span class="author-name">Michael T.</span>
+                <span class="author-trip">Trip to Thailand</span>
+              </div>
+            </div>
+            <div class="testimonial-card">
+              <div class="testimonial-rating">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star-half-alt"></i>
+              </div>
+              <p class="testimonial-text">"As a senior traveler with pre-existing conditions, I was able to find affordable coverage that met all my needs."</p>
+              <div class="testimonial-author">
+                <span class="author-name">David M.</span>
+                <span class="author-trip">Trip to Italy</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Partners Section -->
+      <section class="partners-section">
+        <div class="container">
+          <div class="section-heading">
+            <h2>Our Insurance Partners</h2>
+            <p>We work with the most trusted names in travel insurance</p>
+          </div>
+          <div class="partners-grid">
+            <div class="partner-logo">
+              <img src="https://via.placeholder.com/150x75?text=Insurance+A" alt="Insurance Partner A">
+            </div>
+            <div class="partner-logo">
+              <img src="https://via.placeholder.com/150x75?text=Insurance+B" alt="Insurance Partner B">
+            </div>
+            <div class="partner-logo">
+              <img src="https://via.placeholder.com/150x75?text=Insurance+C" alt="Insurance Partner C">
+            </div>
+            <div class="partner-logo">
+              <img src="https://via.placeholder.com/150x75?text=Insurance+D" alt="Insurance Partner D">
+            </div>
+            <div class="partner-logo">
+              <img src="https://via.placeholder.com/150x75?text=Insurance+E" alt="Insurance Partner E">
+            </div>
+            <div class="partner-logo">
+              <img src="https://via.placeholder.com/150x75?text=Insurance+F" alt="Insurance Partner F">
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CTA Section -->
+      <section class="cta-section">
+        <div class="container">
+          <div class="cta-content">
+            <h2>Ready to find your perfect travel insurance?</h2>
+            <p>Compare policies from 40+ providers and get covered in minutes</p>
+            <a href="#" class="btn btn-primary btn-large">Get a Quote Now</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-column">
+            <div class="footer-logo">
+              <h2>Newcity</h2>
+            </div>
+            <p>Compare and buy travel insurance online with confidence.</p>
+            <div class="social-links">
+              <a href="#"><i class="fab fa-facebook-f"></i></a>
+              <a href="#"><i class="fab fa-twitter"></i></a>
+              <a href="#"><i class="fab fa-instagram"></i></a>
+              <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+          </div>
+          <div class="footer-column">
+            <h3>Insurance</h3>
+            <ul>
+              <li><a href="#">Travel Insurance</a></li>
+              <li><a href="#">Trip Cancellation</a></li>
+              <li><a href="#">Medical Coverage</a></li>
+              <li><a href="#">Annual Multi-Trip</a></li>
+              <li><a href="#">Adventure Travel</a></li>
+            </ul>
+          </div>
+          <div class="footer-column">
+            <h3>Company</h3>
+            <ul>
+              <li><a href="#">About Us</a></li>
+              <li><a href="#">How It Works</a></li>
+              <li><a href="#">Reviews</a></li>
+              <li><a href="#">Blog</a></li>
+              <li><a href="#">Careers</a></li>
+            </ul>
+          </div>
+          <div class="footer-column">
+            <h3>Support</h3>
+            <ul>
+              <li><a href="#">Help Center</a></li>
+              <li><a href="#">File a Claim</a></li>
+              <li><a href="#">Contact Us</a></li>
+              <li><a href="#">FAQ</a></li>
+              <li><a href="#">Terms of Service</a></li>
+              <li><a href="#">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>&copy; 2025 Newcity. All rights reserved.</p>
+          <p>Licensed insurance agency. Prices, coverage, and terms may vary.</p>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    // Simple mobile menu toggle
+    document.querySelector('.mobile-menu-toggle').addEventListener('click', function() {
+      document.querySelector('.main-nav').classList.toggle('show');
+    });
+  </script>
+</body>
+</html>
