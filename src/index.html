@@ -10,6 +10,12 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <!-- Font Awesome for icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Litepicker for date range selection -->
+  <script src="https://cdn.jsdelivr.net/npm/litepicker@2.0.12/dist/litepicker.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/litepicker@2.0.12/dist/plugins/mobilefriendly.js"></script>
+  <!-- TomSelect for multi-select dropdown -->
+  <link href="https://cdn.jsdelivr.net/npm/tom-select@2.2.2/dist/css/tom-select.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/tom-select@2.2.2/dist/js/tom-select.complete.min.js"></script>
 </head>
 <body>
   <div class="page-container">
@@ -80,7 +86,7 @@
                   <ul>
                     <li class="tab active" data-tab="trip"><span class="tab-number">1</span><span class="tab-text">Trip Details</span></li>
                     <li class="tab" data-tab="travelers"><span class="tab-number">2</span><span class="tab-text">Travelers</span></li>
-                    <li class="tab" data-tab="coverage"><span class="tab-number">3</span><span class="tab-text">Coverage</span></li>
+                    <li class="tab" data-tab="contact"><span class="tab-number">3</span><span class="tab-text">Contact</span></li>
                   </ul>
                 </div>
                 
@@ -90,50 +96,40 @@
                     <div class="tab-title">Tell us about your trip</div>
                     
                     <div class="form-row">
-                      <div class="form-group">
+                      <div class="form-group full-width">
+                        <label for="trip-destinations">Travelling from Uganda to?</label>
+                        <select id="trip-destinations" multiple="multiple" required>
+                          <option value="europe">Europe</option>
+                          <option value="asia">Asia</option>
+                          <option value="usa">United States</option>
+                          <option value="canada">Canada</option>
+                          <option value="middle-east">Middle East</option>
+                          <option value="southamerica">South America</option>
+                          <option value="africa">Africa</option>
+                          <option value="oceania">Australia & Oceania</option>
+                          <option value="caribbean">Caribbean</option>
+                          <option value="arctic">Arctic/Antarctica</option>
+                          <option value="worldwide">Worldwide</option>
+                        </select>
+                      </div>
+                    </div>
+                    
+                    <div class="form-row">
+                      <div class="form-group full-width">
+                        <label for="trip-dates">Travel Dates</label>
+                        <input type="text" id="trip-dates" placeholder="DD.MM.YYYY - DD.MM.YYYY" required>
+                        <div id="trip-duration" class="trip-duration-display"></div>
+                      </div>
+                    </div>
+                    
+                    <div class="form-row" id="trip-type-container" style="display: none;">
+                      <div class="form-group full-width">
                         <label for="trip-type">Trip Type</label>
                         <select id="trip-type" required>
                           <option value="single">Single Trip</option>
                           <option value="multi">Annual Multi-Trip</option>
-                          <option value="cruise">Cruise</option>
-                          <option value="adventure">Adventure/Sports</option>
                         </select>
-                      </div>
-                    </div>
-                    
-                    <div class="form-row">
-                      <div class="form-group">
-                        <label for="trip-destination">Trip Destination</label>
-                        <select id="trip-destination" required>
-                          <option value="">Select destination</option>
-                          <option value="europe">Europe</option>
-                          <option value="asia">Asia</option>
-                          <option value="northamerica">North America</option>
-                          <option value="southamerica">South America</option>
-                          <option value="africa">Africa</option>
-                          <option value="oceania">Australia & Oceania</option>
-                        </select>
-                      </div>
-                    </div>
-                    
-                    <div class="form-row">
-                      <div class="form-group">
-                        <label for="departure-date">Departure Date</label>
-                        <input type="date" id="departure-date" required>
-                      </div>
-                      <div class="form-group">
-                        <label for="return-date">Return Date</label>
-                        <input type="date" id="return-date" required>
-                      </div>
-                    </div>
-                    
-                    <div class="form-row">
-                      <div class="form-group">
-                        <label for="trip-cost">Trip Cost (Optional)</label>
-                        <input type="text" id="trip-cost" placeholder="USD">
-                      </div>
-                      <div class="form-group">
-                        <div class="helper-text">Include all non-refundable costs paid before your trip.</div>
+                        <div class="helper-text">For trips longer than 180 days, please specify trip type</div>
                       </div>
                     </div>
                     
@@ -149,121 +145,54 @@
                     <div class="form-row">
                       <div class="form-group">
                         <label for="travelers-count">Number of Travelers</label>
-                        <select id="travelers-count" required>
-                          <option value="1">1</option>
-                          <option value="2">2</option>
-                          <option value="3">3</option>
-                          <option value="4">4</option>
-                          <option value="5">5</option>
-                          <option value="6+">6+</option>
-                        </select>
+                        <input type="number" id="travelers-count" min="1" value="1" required>
+                        <div class="helper-text">Enter number of travelers (1 or more)</div>
                       </div>
                     </div>
                     
-                    <div id="travelers-list">
-                      <div class="traveler-details">
-                        <div class="traveler-title">Traveler 1</div>
-                        <div class="form-row">
-                          <div class="form-group">
-                            <label for="traveler-1-age">Age</label>
-                            <select id="traveler-1-age" required>
-                              <option value="0-17">0-17 years</option>
-                              <option value="18-30">18-30 years</option>
-                              <option value="31-40">31-40 years</option>
-                              <option value="41-50">41-50 years</option>
-                              <option value="51-60">51-60 years</option>
-                              <option value="61-70">61-70 years</option>
-                              <option value="71-80">71-80 years</option>
-                              <option value="81+">81+ years</option>
-                            </select>
-                          </div>
-                          <div class="form-group">
-                            <label>Primary Traveler?</label>
-                            <div class="checkbox-wrapper">
-                              <input type="checkbox" id="traveler-1-primary" checked>
-                              <label for="traveler-1-primary" class="checkbox-label">Yes, this is the primary traveler</label>
+                    <div id="travelers-list"></div>
+                    
+                    <!-- Template for traveler row (hidden, used by JavaScript) -->
+                    <template id="traveler-row-template">
+                      <div class="travelers-row">
+                        <div class="traveler-details">
+                          <div class="traveler-title">Traveler 1</div>
+                          <div class="form-row">
+                            <div class="form-group">
+                              <label for="traveler-1-age">Age</label>
+                              <input type="number" id="traveler-1-age" min="0" max="90" value="30" required>
+                              <div class="helper-text">Enter age (0-90)</div>
                             </div>
                           </div>
                         </div>
-                        <div class="form-row">
-                          <div class="form-group">
-                            <label>Resident of</label>
-                            <select id="traveler-1-residence" required>
-                              <option value="US">United States</option>
-                              <option value="CA">Canada</option>
-                              <option value="UK">United Kingdom</option>
-                              <option value="other">Other</option>
-                            </select>
+                        <div class="traveler-details">
+                          <div class="traveler-title">Traveler 2</div>
+                          <div class="form-row">
+                            <div class="form-group">
+                              <label for="traveler-2-age">Age</label>
+                              <input type="number" id="traveler-2-age" min="0" max="90" value="30" required>
+                              <div class="helper-text">Enter age (0-90)</div>
+                            </div>
                           </div>
                         </div>
                       </div>
-                    </div>
+                    </template>
                     
                     <div class="form-actions">
                       <button type="button" class="btn btn-outline prev-tab" data-prev="trip">Previous</button>
-                      <button type="button" class="btn btn-primary next-tab" data-next="coverage">Continue to Coverage</button>
+                      <button type="button" class="btn btn-primary next-tab" data-next="contact">Continue to Contact</button>
                     </div>
                   </div>
                   
                   <!-- Step 3: Coverage Options -->
-                  <div class="tab-content" id="coverage">
-                    <div class="tab-title">Select your coverage needs</div>
+                  <div class="tab-content" id="contact">
+                    <div class="tab-title">Contact Information</div>
                     
                     <div class="form-row">
                       <div class="form-group full-width">
-                        <label class="section-label">What coverage is most important to you?</label>
-                        <div class="coverage-options">
-                          <div class="coverage-option">
-                            <input type="checkbox" id="coverage-trip-cancellation">
-                            <label for="coverage-trip-cancellation">Trip Cancellation</label>
-                            <span class="info-tooltip" title="Reimburses prepaid, non-refundable expenses if you need to cancel for a covered reason">i</span>
-                          </div>
-                          <div class="coverage-option">
-                            <input type="checkbox" id="coverage-medical">
-                            <label for="coverage-medical">Emergency Medical</label>
-                            <span class="info-tooltip" title="Covers medical expenses for illness or injury during your trip">i</span>
-                          </div>
-                          <div class="coverage-option">
-                            <input type="checkbox" id="coverage-evacuation">
-                            <label for="coverage-evacuation">Medical Evacuation</label>
-                            <span class="info-tooltip" title="Covers transportation to nearest adequate medical facility or home if necessary">i</span>
-                          </div>
-                          <div class="coverage-option">
-                            <input type="checkbox" id="coverage-delay">
-                            <label for="coverage-delay">Trip Delay</label>
-                            <span class="info-tooltip" title="Reimburses additional expenses if your trip is delayed for a covered reason">i</span>
-                          </div>
-                          <div class="coverage-option">
-                            <input type="checkbox" id="coverage-baggage">
-                            <label for="coverage-baggage">Baggage Loss/Delay</label>
-                            <span class="info-tooltip" title="Covers loss, damage, or delay of luggage and personal items">i</span>
-                          </div>
-                          <div class="coverage-option">
-                            <input type="checkbox" id="coverage-cfar">
-                            <label for="coverage-cfar">Cancel For Any Reason</label>
-                            <span class="info-tooltip" title="Optional upgrade that allows you to cancel for reasons not otherwise covered">i</span>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    
-                    <div class="form-row">
-                      <div class="form-group full-width">
-                        <label>Do any travelers have pre-existing medical conditions?</label>
-                        <div class="radio-options">
-                          <div class="radio-option">
-                            <input type="radio" name="preexisting" id="preexisting-yes" value="yes">
-                            <label for="preexisting-yes">Yes</label>
-                          </div>
-                          <div class="radio-option">
-                            <input type="radio" name="preexisting" id="preexisting-no" value="no" checked>
-                            <label for="preexisting-no">No</label>
-                          </div>
-                          <div class="radio-option">
-                            <input type="radio" name="preexisting" id="preexisting-unsure" value="unsure">
-                            <label for="preexisting-unsure">Not Sure</label>
-                          </div>
-                        </div>
+                        <label for="whatsapp-contact">WhatsApp Contact (Optional)</label>
+                        <input type="tel" id="whatsapp-contact" placeholder="WhatsApp number">
+                        <div class="helper-text">Receive quotes and updates via WhatsApp</div>
                       </div>
                     </div>
                     
@@ -531,52 +460,144 @@
       // Travelers count handling to show/hide additional traveler sections
       const travelersCount = document.getElementById('travelers-count');
       if (travelersCount) {
+        // Initialize with default value
+        updateTravelerSections(parseInt(travelersCount.value, 10));
+        
+        // Update when changed
         travelersCount.addEventListener('change', function() {
-          updateTravelerSections(parseInt(this.value, 10));
+          // Ensure value is at least 1
+          const count = Math.max(1, parseInt(this.value, 10) || 1);
+          this.value = count;
+          updateTravelerSections(count);
+        });
+        
+        // Also update on input for real-time changes
+        travelersCount.addEventListener('input', function() {
+          // Ensure value is at least 1
+          const count = Math.max(1, parseInt(this.value, 10) || 1);
+          this.value = count;
+          updateTravelerSections(count);
         });
       }
 
       function updateTravelerSections(count) {
         // Get the travelers list container
         const travelersList = document.getElementById('travelers-list');
-        
-        // Store the first traveler as a template
-        const travelerTemplate = travelersList.querySelector('.traveler-details').cloneNode(true);
+        const template = document.getElementById('traveler-row-template');
         
         // Clear the list
         travelersList.innerHTML = '';
         
-        // Add the appropriate number of traveler sections
-        for (let i = 1; i <= count; i++) {
-          const newTraveler = travelerTemplate.cloneNode(true);
+        // Calculate how many rows we need (2 travelers per row)
+        const rowCount = Math.ceil(count / 2);
+        
+        // Add the appropriate number of traveler rows
+        for (let rowIndex = 0; rowIndex < rowCount; rowIndex++) {
+          const rowStart = rowIndex * 2 + 1; // 1, 3, 5, ...
           
-          // Update IDs and labels
-          newTraveler.querySelector('.traveler-title').textContent = `Traveler ${i}`;
+          // Clone the template row
+          const newRow = template.content.cloneNode(true);
+          const rowDiv = newRow.querySelector('.travelers-row');
+          const travelerDivs = rowDiv.querySelectorAll('.traveler-details');
           
-          // Update form element IDs to avoid duplicates
-          const inputs = newTraveler.querySelectorAll('input, select');
-          inputs.forEach(input => {
+          // Update first traveler in the row
+          const traveler1 = travelerDivs[0];
+          traveler1.querySelector('.traveler-title').textContent = `Traveler ${rowStart}`;
+          
+          // Update form element IDs for the first traveler
+          const inputs1 = traveler1.querySelectorAll('input, select');
+          inputs1.forEach(input => {
             const originalId = input.id;
-            const newId = originalId.replace(/\d+/, i);
+            const newId = originalId.replace(/\d+/, rowStart);
             input.id = newId;
             
             // Update associated labels
-            const label = newTraveler.querySelector(`label[for="${originalId}"]`);
+            const label = traveler1.querySelector(`label[for="${originalId}"]`);
             if (label) {
               label.setAttribute('for', newId);
             }
           });
           
-          // Only the first traveler should be checked as primary by default
-          const primaryCheckbox = newTraveler.querySelector(`#traveler-${i}-primary`);
-          if (primaryCheckbox) {
-            primaryCheckbox.checked = i === 1;
+          // Handle second traveler in the row
+          const traveler2 = travelerDivs[1];
+          if (rowStart + 1 <= count) {
+            // We have a second traveler for this row
+            traveler2.querySelector('.traveler-title').textContent = `Traveler ${rowStart + 1}`;
+            
+            // Update form element IDs for the second traveler
+            const inputs2 = traveler2.querySelectorAll('input, select');
+            inputs2.forEach(input => {
+              const originalId = input.id;
+              const newId = originalId.replace(/\d+/, rowStart + 1);
+              input.id = newId;
+              
+              // Update associated labels
+              const label = traveler2.querySelector(`label[for="${originalId}"]`);
+              if (label) {
+                label.setAttribute('for', newId);
+              }
+            });
+          } else {
+            // If we have an odd number of travelers, hide the second traveler div
+            traveler2.style.display = 'none';
           }
           
-          travelersList.appendChild(newTraveler);
+          travelersList.appendChild(newRow);
         }
       }
 
+      // Initialize TomSelect for destinations dropdown
+      const destinationsElement = document.getElementById('trip-destinations');
+      if (destinationsElement) {
+        new TomSelect(destinationsElement, {
+          plugins: ['remove_button'],
+          placeholder: 'Select destinations',
+          allowEmptyOption: false
+        });
+      }
+
+      // Initialize Litepicker for date range selection
+      const tripDatesElement = document.getElementById('trip-dates');
+      const tripTypeContainer = document.getElementById('trip-type-container');
+      
+      if (tripDatesElement) {
+        const picker = new Litepicker({
+          element: tripDatesElement,
+          format: 'DD.MM.YYYY',
+          separator: ' - ',
+          singleMode: false,
+          numberOfMonths: 2,
+          numberOfColumns: 2,
+          minDate: new Date(),
+          maxDays: 366,
+          selectForward: true,
+          autoApply: true,
+          showTooltip: true,
+          tooltipText: {
+            one: 'day',
+            other: 'days'
+          },
+          plugins: ['mobilefriendly']
+        });
+        
+        // Update trip duration on date selection and show/hide trip type field
+        picker.on('selected', (date1, date2) => {
+          if (date1 && date2) {
+            const days = Math.ceil((date2.getTime() - date1.getTime()) / (1000 * 60 * 60 * 24)) + 1;
+            document.getElementById('trip-duration').textContent = `Trip duration: ${days} days`;
+            
+            // Show trip type selector if trip is longer than 180 days
+            if (days > 180) {
+              tripTypeContainer.style.display = 'flex';
+              document.getElementById('trip-type').setAttribute('required', 'required');
+            } else {
+              tripTypeContainer.style.display = 'none';
+              document.getElementById('trip-type').removeAttribute('required');
+            }
+          }
+        });
+      }
+      
       // Form submission handling
       document.getElementById('quote-form').addEventListener('submit', function(e) {
         e.preventDefault();
