@@ -29,20 +29,20 @@
             </a>
           </div>
           <nav class="main-nav">
-            <ul>
+            <!-- <ul>
               <li><a href="#" class="active">Travel Insurance</a></li>
               <li><a href="#">Claims</a></li>
               <li><a href="#">Help Center</a></li>
-            </ul>
+            </ul> -->
           </nav>
           <div class="header-right">
             <div class="contact-info">
-              <i class="fas fa-phone"></i>
-              <span>800-555-1234</span>
+              <!-- <i class="fas fa-phone"></i>
+              <span>800-555-1234</span> -->
             </div>
             <div class="account-links">
               <a href="#" class="btn btn-outline">Log In</a>
-              <a href="#" class="btn btn-primary">Sign Up</a>
+              <!-- <a href="#" class="btn btn-primary">Sign Up</a> -->
             </div>
           </div>
           <button class="mobile-menu-toggle">
@@ -63,17 +63,17 @@
               <p>Search, compare, and purchase travel insurance from the top providers - all in one place.</p>
               <div class="hero-stats">
                 <div class="stat">
-                  <strong>40+</strong>
+                  <strong>4+</strong>
                   <span>Insurance Providers</span>
                 </div>
-                <div class="stat">
+                <!-- <div class="stat">
                   <strong>4.8/5</strong>
                   <span>Customer Rating</span>
                 </div>
                 <div class="stat">
                   <strong>12M+</strong>
                   <span>Travelers Protected</span>
-                </div>
+                </div> -->
               </div>
             </div>
             <div class="quote-card">
@@ -601,7 +601,10 @@
       // Form submission handling
       document.getElementById('quote-form').addEventListener('submit', function(e) {
         e.preventDefault();
-        alert('Thank you for your submission! In a real application, this would take you to a page comparing insurance policies.');
+        
+        // In a real application, we would collect and send form data to the server
+        // Here we'll just redirect to the quote-list.html page
+        window.location.href = 'quote-list.html';
       });
 
       // Info tooltips

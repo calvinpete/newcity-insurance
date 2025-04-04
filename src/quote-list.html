@@ -1,0 +1,854 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Insurance Quote Results - Newcity Travel Insurance</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/core@1.0.0-beta17/dist/css/tabler.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tom-select@2.2.2/dist/css/tom-select.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/litepicker/dist/css/litepicker.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/litepicker/dist/plugins/mobilefriendly.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="page-container">
+    <!-- Header section matching index.html -->
+    <header class="header">
+      <div class="container">
+        <div class="header-content">
+          <div class="logo">
+            <h1><a href="index.html">Newcity Travel Insurance</a></h1>
+          </div>
+          
+          <nav class="main-nav">
+            <ul>
+              <li><a href="index.html" class="active">Home</a></li>
+              <li><a href="#">Plans</a></li>
+              <li><a href="#">About Us</a></li>
+              <li><a href="#">Claims</a></li>
+              <li><a href="#">Contact</a></li>
+            </ul>
+          </nav>
+          
+          <div class="header-right">
+            <div class="contact-info">
+              <i class="fas fa-phone"></i>
+              <span>+256 700 123456</span>
+            </div>
+            
+            <div class="account-links">
+              <a href="#" class="btn btn-outline">Log In</a>
+              <a href="#" class="btn btn-primary">Register</a>
+            </div>
+            
+            <button class="mobile-menu-toggle">
+              <i class="fas fa-bars"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </header>
+    <!-- Quote reference section -->
+    <div class="container">
+      <div class="d-flex justify-content-end mt-3">
+        <div class="quote-reference">
+          Quote No. NC-12345
+        </div>
+      </div>
+    </div>
+
+    <!-- Trip summary section -->
+    <section class="section-heading">
+      <div class="container">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+          <div>
+            <h2>Travel Insurance Quotes</h2>
+            <p class="text-muted">Your Trip Details</p>
+          </div>
+          <div class="d-flex gap-2">
+            <a href="index.html" class="btn btn-outline">
+              <i class="fas fa-edit"></i> Edit Information
+            </a>
+            <a href="#" class="btn btn-outline">
+              <i class="fas fa-envelope"></i> Email Quote
+            </a>
+            <a href="#" class="btn btn-outline">
+              <i class="fas fa-bookmark"></i> Save Quote
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Trip and filter summary -->
+    <section class="main-content">
+      <div class="container">
+        <div class="row">
+          <!-- Trip summary card -->
+          <div class="col-md-12 mb-3">
+            <div class="card">
+              <div class="card-body">
+                <div class="row">
+                  <div class="col-md-3">
+                    <div class="trip-info-item">
+                      <div class="trip-info-label">Trip Dates</div>
+                      <div class="trip-info-value">15.05.2025 - 25.05.2025</div>
+                      <div class="trip-info-note">11 days</div>
+                    </div>
+                  </div>
+                  <div class="col-md-3">
+                    <div class="trip-info-item">
+                      <div class="trip-info-label">Destination</div>
+                      <div class="trip-info-value">Kenya, Tanzania</div>
+                    </div>
+                  </div>
+                  <div class="col-md-3">
+                    <div class="trip-info-item">
+                      <div class="trip-info-label">Travelers</div>
+                      <div class="trip-info-value">2 Travelers</div>
+                      <div class="trip-info-note">Ages 35, 32</div>
+                    </div>
+                  </div>
+                  <div class="col-md-3">
+                    <div class="trip-info-item">
+                      <div class="trip-info-label">Residence</div>
+                      <div class="trip-info-value">Uganda</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Left sidebar with filters -->
+          <div class="col-md-3">
+            <div class="card">
+              <div class="card-header">
+                <h3 class="card-title">Filter Results</h3>
+              </div>
+              <div class="card-body">
+                <!-- Filter accordion -->
+                <div class="accordion" id="filterAccordion">
+                  <!-- Emergency Medical -->
+                  <div class="accordion-item">
+                    <h2 class="accordion-header" id="filterMedical">
+                      <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseMedical" aria-expanded="true" aria-controls="collapseMedical">
+                        Emergency Medical
+                      </button>
+                    </h2>
+                    <div id="collapseMedical" class="accordion-collapse collapse show" aria-labelledby="filterMedical">
+                      <div class="accordion-body p-2">
+                        <div class="form-selectgroup form-selectgroup-pills">
+                          <label class="form-selectgroup-item">
+                            <input type="radio" name="medical" value="10000" class="form-selectgroup-input" checked>
+                            <span class="form-selectgroup-label">$10,000+</span>
+                          </label>
+                          <label class="form-selectgroup-item">
+                            <input type="radio" name="medical" value="50000" class="form-selectgroup-input">
+                            <span class="form-selectgroup-label">$50,000+</span>
+                          </label>
+                          <label class="form-selectgroup-item">
+                            <input type="radio" name="medical" value="100000" class="form-selectgroup-input">
+                            <span class="form-selectgroup-label">$100,000+</span>
+                          </label>
+                          <label class="form-selectgroup-item">
+                            <input type="radio" name="medical" value="250000" class="form-selectgroup-input">
+                            <span class="form-selectgroup-label">$250,000+</span>
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <!-- Medical Evacuation -->
+                  <div class="accordion-item">
+                    <h2 class="accordion-header" id="filterEvacuation">
+                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseEvacuation" aria-expanded="false" aria-controls="collapseEvacuation">
+                        Medical Evacuation
+                      </button>
+                    </h2>
+                    <div id="collapseEvacuation" class="accordion-collapse collapse" aria-labelledby="filterEvacuation">
+                      <div class="accordion-body p-2">
+                        <div class="form-selectgroup form-selectgroup-pills">
+                          <label class="form-selectgroup-item">
+                            <input type="radio" name="evacuation" value="50000" class="form-selectgroup-input" checked>
+                            <span class="form-selectgroup-label">$50,000+</span>
+                          </label>
+                          <label class="form-selectgroup-item">
+                            <input type="radio" name="evacuation" value="100000" class="form-selectgroup-input">
+                            <span class="form-selectgroup-label">$100,000+</span>
+                          </label>
+                          <label class="form-selectgroup-item">
+                            <input type="radio" name="evacuation" value="500000" class="form-selectgroup-input">
+                            <span class="form-selectgroup-label">$500,000+</span>
+                          </label>
+                          <label class="form-selectgroup-item">
+                            <input type="radio" name="evacuation" value="1000000" class="form-selectgroup-input">
+                            <span class="form-selectgroup-label">$1,000,000+</span>
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <!-- Pre-existing Medical -->
+                  <div class="accordion-item">
+                    <h2 class="accordion-header" id="filterPreexisting">
+                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapsePreexisting" aria-expanded="false" aria-controls="collapsePreexisting">
+                        Pre-existing Medical
+                      </button>
+                    </h2>
+                    <div id="collapsePreexisting" class="accordion-collapse collapse" aria-labelledby="filterPreexisting">
+                      <div class="accordion-body p-2">
+                        <label class="form-check">
+                          <input class="form-check-input" type="checkbox">
+                          <span class="form-check-label">Cover pre-existing conditions</span>
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <!-- More filters (collapsed for brevity) -->
+                  <div class="accordion-item">
+                    <h2 class="accordion-header" id="filterMore">
+                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseMore" aria-expanded="false" aria-controls="collapseMore">
+                        More Filters
+                      </button>
+                    </h2>
+                    <div id="collapseMore" class="accordion-collapse collapse" aria-labelledby="filterMore">
+                      <div class="accordion-body p-2">
+                        <label class="form-check">
+                          <input class="form-check-input" type="checkbox">
+                          <span class="form-check-label">Cancel For Any Reason</span>
+                        </label>
+                        <label class="form-check">
+                          <input class="form-check-input" type="checkbox">
+                          <span class="form-check-label">Trip Interruption</span>
+                        </label>
+                        <label class="form-check">
+                          <input class="form-check-input" type="checkbox">
+                          <span class="form-check-label">Baggage Loss</span>
+                        </label>
+                        <label class="form-check">
+                          <input class="form-check-input" type="checkbox">
+                          <span class="form-check-label">Travel Delay</span>
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+                <!-- Apply filters button -->
+                <div class="mt-3">
+                  <button type="button" class="btn btn-primary w-100">
+                    Apply Filters
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Main content with quotes -->
+          <div class="col-md-9">
+            <!-- Sort options -->
+            <div class="card mb-3">
+              <div class="card-body">
+                <div class="d-flex justify-content-between align-items-center">
+                  <div>
+                    <span class="text-muted">12 policies match your search</span>
+                  </div>
+                  <div class="dropdown">
+                    <button class="btn btn-outline dropdown-toggle" type="button" id="sortDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                      Sort: Most Popular
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="sortDropdown">
+                      <li><a class="dropdown-item active" href="#">Most Popular</a></li>
+                      <li><a class="dropdown-item" href="#">Price (Low to High)</a></li>
+                      <li><a class="dropdown-item" href="#">Policy Rating (High to Low)</a></li>
+                      <li><a class="dropdown-item" href="#">Provider (Alphabetical)</a></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Quote cards -->
+            <!-- Quote 1 -->
+            <div class="card mb-3 quote-card">
+              <div class="card-body">
+                <div class="row align-items-center">
+                  <!-- Provider logo -->
+                  <div class="col-lg-3 text-center">
+                    <div class="provider-logo mb-2">
+                      <img src="https://via.placeholder.com/150x80?text=Provider+A" alt="Provider A" class="img-fluid">
+                    </div>
+                    <div class="mt-2">
+                      <a href="#" class="view-details-link" data-bs-toggle="offcanvas" data-bs-target="#policyDetails1" aria-controls="policyDetails1">View all policy details</a>
+                    </div>
+                  </div>
+                  
+                  <!-- Policy details -->
+                  <div class="col-lg-6">
+                    <h3 class="policy-name">Gold Travel Protection Plan</h3>
+                    
+                    <div class="row g-2 policy-benefits">
+                      <div class="col-sm-6">
+                        <div class="benefit-item">
+                          <div class="benefit-label">Emergency Medical</div>
+                          <div class="benefit-value">$250,000</div>
+                        </div>
+                      </div>
+                      <div class="col-sm-6">
+                        <div class="benefit-item">
+                          <div class="benefit-label">Medical Evacuation</div>
+                          <div class="benefit-value">$500,000</div>
+                        </div>
+                      </div>
+                      <div class="col-sm-6">
+                        <div class="benefit-item">
+                          <div class="benefit-label">Pre-existing Medical</div>
+                          <div class="benefit-value">Covered</div>
+                        </div>
+                      </div>
+                      <div class="col-sm-6">
+                        <div class="benefit-item">
+                          <div class="benefit-label">Trip Cancellation</div>
+                          <div class="benefit-value">Up to 100% of trip cost</div>
+                        </div>
+                      </div>
+                    </div>
+                    
+
+                  </div>
+                  
+                  <!-- Price and CTA -->
+                  <div class="col-lg-3 text-center">
+                    <div class="policy-price mb-2">
+                      <div class="price-label text-muted">Total Price</div>
+                      <div class="price-value">$85.40</div>
+                      <div class="price-note text-muted">
+                        <small>For 2 travelers</small>
+                      </div>
+                    </div>
+                    <a href="#" class="btn btn-primary w-100 mb-2">Buy Now</a>
+                    <label class="btn btn-outline w-100 compare-btn" for="compare1">
+                      <input class="compare-checkbox" type="checkbox" id="compare1" data-policy-id="1" name="compare-policies" hidden>
+                      <i class="fas fa-check-square check-icon"></i>
+                      <i class="far fa-square uncheck-icon"></i>
+                      Compare
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Quote 2 -->
+            <div class="card mb-3 quote-card">
+              <div class="card-body">
+                <div class="row align-items-center">
+                  <!-- Provider logo -->
+                  <div class="col-lg-3 text-center">
+                    <div class="provider-logo mb-2">
+                      <img src="https://via.placeholder.com/150x80?text=Provider+B" alt="Provider B" class="img-fluid">
+                    </div>
+                    <div class="mt-2">
+                      <a href="#" class="view-details-link" data-bs-toggle="offcanvas" data-bs-target="#policyDetails2" aria-controls="policyDetails2">View all policy details</a>
+                    </div>
+                  </div>
+                  
+                  <!-- Policy details -->
+                  <div class="col-lg-6">
+                    <h3 class="policy-name">Premium Travel Insurance</h3>
+                    
+                    <div class="row g-2 policy-benefits">
+                      <div class="col-sm-6">
+                        <div class="benefit-item">
+                          <div class="benefit-label">Emergency Medical</div>
+                          <div class="benefit-value">$100,000</div>
+                        </div>
+                      </div>
+                      <div class="col-sm-6">
+                        <div class="benefit-item">
+                          <div class="benefit-label">Medical Evacuation</div>
+                          <div class="benefit-value">$250,000</div>
+                        </div>
+                      </div>
+                      <div class="col-sm-6">
+                        <div class="benefit-item">
+                          <div class="benefit-label">Pre-existing Medical</div>
+                          <div class="benefit-value">Covered within 14 days</div>
+                        </div>
+                      </div>
+                      <div class="col-sm-6">
+                        <div class="benefit-item">
+                          <div class="benefit-label">Trip Cancellation</div>
+                          <div class="benefit-value">Up to 100% of trip cost</div>
+                        </div>
+                      </div>
+                    </div>
+                    
+
+                  </div>
+                  
+                  <!-- Price and CTA -->
+                  <div class="col-lg-3 text-center">
+                    <div class="policy-price mb-2">
+                      <div class="price-label text-muted">Total Price</div>
+                      <div class="price-value">$72.50</div>
+                      <div class="price-note text-muted">
+                        <small>For 2 travelers</small>
+                      </div>
+                    </div>
+                    <a href="#" class="btn btn-primary w-100 mb-2">Buy Now</a>
+                    <label class="btn btn-outline w-100 compare-btn" for="compare2">
+                      <input class="compare-checkbox" type="checkbox" id="compare2" data-policy-id="2" name="compare-policies" hidden>
+                      <i class="fas fa-check-square check-icon"></i>
+                      <i class="far fa-square uncheck-icon"></i>
+                      Compare
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Quote 3 -->
+            <div class="card mb-3 quote-card">
+              <div class="card-body">
+                <div class="row align-items-center">
+                  <!-- Provider logo -->
+                  <div class="col-lg-3 text-center">
+                    <div class="provider-logo mb-2">
+                      <img src="https://via.placeholder.com/150x80?text=Provider+C" alt="Provider C" class="img-fluid">
+                    </div>
+                    <div class="mt-2">
+                      <a href="#" class="view-details-link" data-bs-toggle="offcanvas" data-bs-target="#policyDetails3" aria-controls="policyDetails3">View all policy details</a>
+                    </div>
+                  </div>
+                  
+                  <!-- Policy details -->
+                  <div class="col-lg-6">
+                    <h3 class="policy-name">Standard Travel Protection</h3>
+                    
+                    <div class="row g-2 policy-benefits">
+                      <div class="col-sm-6">
+                        <div class="benefit-item">
+                          <div class="benefit-label">Emergency Medical</div>
+                          <div class="benefit-value">$50,000</div>
+                        </div>
+                      </div>
+                      <div class="col-sm-6">
+                        <div class="benefit-item">
+                          <div class="benefit-label">Medical Evacuation</div>
+                          <div class="benefit-value">$100,000</div>
+                        </div>
+                      </div>
+                      <div class="col-sm-6">
+                        <div class="benefit-item">
+                          <div class="benefit-label">Pre-existing Medical</div>
+                          <div class="benefit-value">Not Covered</div>
+                        </div>
+                      </div>
+                      <div class="col-sm-6">
+                        <div class="benefit-item">
+                          <div class="benefit-label">Trip Cancellation</div>
+                          <div class="benefit-value">Up to 75% of trip cost</div>
+                        </div>
+                      </div>
+                    </div>
+                    
+
+                  </div>
+                  
+                  <!-- Price and CTA -->
+                  <div class="col-lg-3 text-center">
+                    <div class="policy-price mb-2">
+                      <div class="price-label text-muted">Total Price</div>
+                      <div class="price-value">$58.25</div>
+                      <div class="price-note text-muted">
+                        <small>For 2 travelers</small>
+                      </div>
+                    </div>
+                    <a href="#" class="btn btn-primary w-100 mb-2">Buy Now</a>
+                    <label class="btn btn-outline w-100 compare-btn" for="compare3">
+                      <input class="compare-checkbox" type="checkbox" id="compare3" data-policy-id="3" name="compare-policies" hidden>
+                      <i class="fas fa-check-square check-icon"></i>
+                      <i class="far fa-square uncheck-icon"></i>
+                      Compare
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <!-- More quotes would follow here -->
+            
+            <!-- Note: Pagination removed as all plans will be shown on the same page with horizontal scrolling -->
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+  
+  <!-- Offcanvas Policy Details -->
+  <!-- Policy Details 1 Offcanvas -->
+  <div class="offcanvas offcanvas-end" tabindex="-1" id="policyDetails1" aria-labelledby="policyDetails1Label">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title" id="policyDetails1Label">Gold Travel Protection Plan</h5>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+      <div class="policy-details-content">
+        <div class="provider-info mb-4">
+          <img src="https://via.placeholder.com/150x80?text=Provider+A" alt="Provider A" class="img-fluid mb-3">
+          <p class="text-muted">Trusted by thousands of travelers worldwide</p>
+        </div>
+        
+        <div class="policy-section mb-4">
+          <h6 class="section-title">Coverage Details</h6>
+          <table class="table table-borderless">
+            <tbody>
+              <tr>
+                <td>Emergency Medical</td>
+                <td class="text-end fw-bold">$250,000</td>
+              </tr>
+              <tr>
+                <td>Medical Evacuation</td>
+                <td class="text-end fw-bold">$500,000</td>
+              </tr>
+              <tr>
+                <td>Pre-existing Medical</td>
+                <td class="text-end fw-bold">Covered</td>
+              </tr>
+              <tr>
+                <td>Trip Cancellation</td>
+                <td class="text-end fw-bold">Up to 100% of trip cost</td>
+              </tr>
+              <tr>
+                <td>Trip Interruption</td>
+                <td class="text-end fw-bold">Up to 150% of trip cost</td>
+              </tr>
+              <tr>
+                <td>Baggage Loss</td>
+                <td class="text-end fw-bold">$2,500</td>
+              </tr>
+              <tr>
+                <td>Baggage Delay</td>
+                <td class="text-end fw-bold">$500</td>
+              </tr>
+              <tr>
+                <td>Travel Delay</td>
+                <td class="text-end fw-bold">$1,000</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        
+        <div class="policy-section mb-4">
+          <h6 class="section-title">Policy Features</h6>
+          <ul class="list-unstyled">
+            <li><i class="fas fa-check text-success me-2"></i> 24/7 Worldwide Assistance</li>
+            <li><i class="fas fa-check text-success me-2"></i> Primary Medical Coverage</li>
+            <li><i class="fas fa-check text-success me-2"></i> Coverage for Adventure Activities</li>
+            <li><i class="fas fa-check text-success me-2"></i> Rental Car Coverage</li>
+            <li><i class="fas fa-check text-success me-2"></i> Hurricane & Weather Protection</li>
+          </ul>
+        </div>
+        
+        <div class="policy-section mb-4">
+          <h6 class="section-title">Policy Documents</h6>
+          <ul class="list-unstyled">
+            <li><a href="#"><i class="fas fa-file-pdf me-2"></i> Policy Certificate</a></li>
+            <li><a href="#"><i class="fas fa-file-alt me-2"></i> Coverage Details</a></li>
+            <li><a href="#"><i class="fas fa-file-contract me-2"></i> Terms and Conditions</a></li>
+          </ul>
+        </div>
+        
+        <div class="policy-cta">
+          <a href="#" class="btn btn-primary btn-lg w-100">Buy Now - $85.40</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Policy Details 2 Offcanvas -->
+  <div class="offcanvas offcanvas-end" tabindex="-1" id="policyDetails2" aria-labelledby="policyDetails2Label">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title" id="policyDetails2Label">Premium Travel Insurance</h5>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+      <div class="policy-details-content">
+        <div class="provider-info mb-4">
+          <img src="https://via.placeholder.com/150x80?text=Provider+B" alt="Provider B" class="img-fluid mb-3">
+          <p class="text-muted">Providing protection for over 20 years</p>
+        </div>
+        
+        <div class="policy-section mb-4">
+          <h6 class="section-title">Coverage Details</h6>
+          <table class="table table-borderless">
+            <tbody>
+              <tr>
+                <td>Emergency Medical</td>
+                <td class="text-end fw-bold">$100,000</td>
+              </tr>
+              <tr>
+                <td>Medical Evacuation</td>
+                <td class="text-end fw-bold">$250,000</td>
+              </tr>
+              <tr>
+                <td>Pre-existing Medical</td>
+                <td class="text-end fw-bold">Covered within 14 days</td>
+              </tr>
+              <tr>
+                <td>Trip Cancellation</td>
+                <td class="text-end fw-bold">Up to 100% of trip cost</td>
+              </tr>
+              <tr>
+                <td>Trip Interruption</td>
+                <td class="text-end fw-bold">Up to 125% of trip cost</td>
+              </tr>
+              <tr>
+                <td>Baggage Loss</td>
+                <td class="text-end fw-bold">$1,500</td>
+              </tr>
+              <tr>
+                <td>Baggage Delay</td>
+                <td class="text-end fw-bold">$300</td>
+              </tr>
+              <tr>
+                <td>Travel Delay</td>
+                <td class="text-end fw-bold">$750</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        
+        <div class="policy-section mb-4">
+          <h6 class="section-title">Policy Features</h6>
+          <ul class="list-unstyled">
+            <li><i class="fas fa-check text-success me-2"></i> 24/7 Worldwide Assistance</li>
+            <li><i class="fas fa-check text-success me-2"></i> Primary Medical Coverage</li>
+            <li><i class="fas fa-check text-success me-2"></i> Trip Cancellation for Work Reasons</li>
+            <li><i class="fas fa-check text-success me-2"></i> Financial Default Protection</li>
+            <li><i class="fas fa-check text-success me-2"></i> Free Coverage for Children</li>
+          </ul>
+        </div>
+        
+        <div class="policy-section mb-4">
+          <h6 class="section-title">Policy Documents</h6>
+          <ul class="list-unstyled">
+            <li><a href="#"><i class="fas fa-file-pdf me-2"></i> Policy Certificate</a></li>
+            <li><a href="#"><i class="fas fa-file-alt me-2"></i> Coverage Details</a></li>
+            <li><a href="#"><i class="fas fa-file-contract me-2"></i> Terms and Conditions</a></li>
+          </ul>
+        </div>
+        
+        <div class="policy-cta">
+          <a href="#" class="btn btn-primary btn-lg w-100">Buy Now - $72.50</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Policy Details 3 Offcanvas -->
+  <div class="offcanvas offcanvas-end" tabindex="-1" id="policyDetails3" aria-labelledby="policyDetails3Label">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title" id="policyDetails3Label">Standard Travel Protection</h5>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+      <div class="policy-details-content">
+        <div class="provider-info mb-4">
+          <img src="https://via.placeholder.com/150x80?text=Provider+C" alt="Provider C" class="img-fluid mb-3">
+          <p class="text-muted">Affordable protection for budget travelers</p>
+        </div>
+        
+        <div class="policy-section mb-4">
+          <h6 class="section-title">Coverage Details</h6>
+          <table class="table table-borderless">
+            <tbody>
+              <tr>
+                <td>Emergency Medical</td>
+                <td class="text-end fw-bold">$50,000</td>
+              </tr>
+              <tr>
+                <td>Medical Evacuation</td>
+                <td class="text-end fw-bold">$100,000</td>
+              </tr>
+              <tr>
+                <td>Pre-existing Medical</td>
+                <td class="text-end fw-bold">Not Covered</td>
+              </tr>
+              <tr>
+                <td>Trip Cancellation</td>
+                <td class="text-end fw-bold">Up to 75% of trip cost</td>
+              </tr>
+              <tr>
+                <td>Trip Interruption</td>
+                <td class="text-end fw-bold">Up to 100% of trip cost</td>
+              </tr>
+              <tr>
+                <td>Baggage Loss</td>
+                <td class="text-end fw-bold">$750</td>
+              </tr>
+              <tr>
+                <td>Baggage Delay</td>
+                <td class="text-end fw-bold">$200</td>
+              </tr>
+              <tr>
+                <td>Travel Delay</td>
+                <td class="text-end fw-bold">$500</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        
+        <div class="policy-section mb-4">
+          <h6 class="section-title">Policy Features</h6>
+          <ul class="list-unstyled">
+            <li><i class="fas fa-check text-success me-2"></i> 24/7 Customer Support</li>
+            <li><i class="fas fa-check text-success me-2"></i> Secondary Medical Coverage</li>
+            <li><i class="fas fa-check text-success me-2"></i> Missed Connection Coverage</li>
+            <li><i class="fas fa-check text-success me-2"></i> Travel Document Protection</li>
+          </ul>
+        </div>
+        
+        <div class="policy-section mb-4">
+          <h6 class="section-title">Policy Documents</h6>
+          <ul class="list-unstyled">
+            <li><a href="#"><i class="fas fa-file-pdf me-2"></i> Policy Certificate</a></li>
+            <li><a href="#"><i class="fas fa-file-alt me-2"></i> Coverage Details</a></li>
+            <li><a href="#"><i class="fas fa-file-contract me-2"></i> Terms and Conditions</a></li>
+          </ul>
+        </div>
+        
+        <div class="policy-cta">
+          <a href="#" class="btn btn-primary btn-lg w-100">Buy Now - $58.25</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Sticky comparison footer -->
+  <div class="comparison-footer" id="comparisonFooter" style="display: none;">
+    <div class="container">
+      <div class="d-flex justify-content-between align-items-center">
+        <div class="comparison-message">
+          <span>🍪 We use our rich algorithm to ensure you get the best comparison experience.</span>
+        </div>
+        <div class="comparison-actions">
+          <button class="btn btn-outline me-2" id="cancelCompare">Cancel</button>
+          <button class="btn btn-primary" id="compareButton">Compare <span id="compareCount">0</span> Insurer Packages</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Add Font Awesome for icons to match index.html -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- JavaScript dependencies -->
+  <script src="https://cdn.jsdelivr.net/npm/@tabler/core@1.0.0-beta17/dist/js/tabler.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/tom-select@2.2.2/dist/js/tom-select.complete.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/litepicker/dist/litepicker.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/litepicker/dist/plugins/mobilefriendly.js"></script>
+  
+  <script>
+    // Initialize the page with sample data
+    document.addEventListener('DOMContentLoaded', function() {
+      // The page is pre-populated with sample data for demonstration
+      console.log('Quote list page loaded');
+      
+      // Handle comparison checkboxes
+      const compareCheckboxes = document.querySelectorAll('.compare-checkbox');
+      const compareButtons = document.querySelectorAll('.compare-btn');
+      const comparisonFooter = document.getElementById('comparisonFooter');
+      const compareCount = document.getElementById('compareCount');
+      const cancelCompareBtn = document.getElementById('cancelCompare');
+      const compareButton = document.getElementById('compareButton');
+      
+      // Provide fallback for :has() selector in browsers that don't support it
+      function updateButtonStyles() {
+        compareCheckboxes.forEach(checkbox => {
+          const btn = checkbox.closest('.compare-btn');
+          const checkIcon = btn.querySelector('.check-icon');
+          const uncheckIcon = btn.querySelector('.uncheck-icon');
+          
+          if (checkbox.checked) {
+            btn.classList.add('btn-active');
+            btn.style.backgroundColor = '#edf2fa';
+            btn.style.color = '#206bc4';
+            btn.style.borderColor = '#206bc4';
+            checkIcon.style.display = 'inline-block';
+            uncheckIcon.style.display = 'none';
+          } else {
+            btn.classList.remove('btn-active');
+            btn.style.backgroundColor = '';
+            btn.style.color = '';
+            btn.style.borderColor = '';
+            checkIcon.style.display = 'none';
+            uncheckIcon.style.display = 'inline-block';
+          }
+        });
+      }
+      
+      // Function to update comparison footer
+      function updateComparisonFooter() {
+        const checkedBoxes = document.querySelectorAll('.compare-checkbox:checked');
+        const count = checkedBoxes.length;
+        
+        if (count > 0) {
+          comparisonFooter.style.display = 'block';
+          compareCount.textContent = count;
+        } else {
+          comparisonFooter.style.display = 'none';
+        }
+        
+        // Update button styles for CSS :has() fallback
+        updateButtonStyles();
+      }
+      
+      // Add event listeners to checkboxes
+      compareCheckboxes.forEach(checkbox => {
+        checkbox.addEventListener('change', updateComparisonFooter);
+      });
+      
+      // You can also click anywhere on the button to toggle the checkbox
+      compareButtons.forEach(btn => {
+        btn.addEventListener('click', function(e) {
+          // Don't handle clicks on the actual checkbox element (already handled)
+          if (e.target.tagName !== 'INPUT') {
+            const checkbox = this.querySelector('input[type="checkbox"]');
+            checkbox.checked = !checkbox.checked;
+            
+            // Trigger the change event for the checkbox
+            const event = new Event('change');
+            checkbox.dispatchEvent(event);
+          }
+        });
+      });
+      
+      // Cancel comparison
+      cancelCompareBtn.addEventListener('click', function() {
+        compareCheckboxes.forEach(checkbox => {
+          checkbox.checked = false;
+        });
+        updateComparisonFooter();
+      });
+      
+      // Handle compare button click
+      compareButton.addEventListener('click', function() {
+        const checkedPolicies = Array.from(document.querySelectorAll('.compare-checkbox:checked')).map(checkbox => {
+          return checkbox.dataset.policyId;
+        });
+        
+        alert('Comparing policies: ' + checkedPolicies.join(', '));
+        // In a real application, this would navigate to a comparison page
+      });
+      
+      // Initialize button styles
+      updateButtonStyles();
+    });
+  </script>
+</body>
+</html>

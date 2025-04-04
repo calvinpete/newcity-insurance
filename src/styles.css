@@ -249,6 +249,239 @@ img {
   color: #206bc4;
 }
 
+/* Quote List Page Styles */
+
+/* Trip info section */
+.trip-info-item {
+  padding: 10px 0;
+}
+
+.trip-info-label {
+  font-size: 0.875rem;
+  color: #626976;
+  margin-bottom: 5px;
+}
+
+.trip-info-value {
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.trip-info-note {
+  font-size: 0.75rem;
+  color: #626976;
+  margin-top: 2px;
+}
+
+.quote-reference {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #626976;
+  padding: 8px 15px;
+  border-radius: 4px;
+  background-color: #f1f5f9;
+}
+
+/* Quote cards */
+.quote-card {
+  border: 1px solid #e6e7e9;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  transition: box-shadow 0.3s ease, transform 0.2s ease;
+}
+
+.quote-card:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transform: translateY(-2px);
+}
+
+.provider-logo {
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.provider-logo img {
+  max-height: 80px;
+  max-width: 100%;
+}
+
+.provider-rating {
+  margin-top: 10px;
+}
+
+.stars {
+  color: #adb5bd;
+  font-size: 16px;
+  letter-spacing: 2px;
+}
+
+.star.filled {
+  color: #f59f00;
+}
+
+.star.half-filled {
+  position: relative;
+  display: inline-block;
+}
+
+.star.half-filled:before {
+  content: '★';
+  color: #f59f00;
+  position: absolute;
+  width: 50%;
+  overflow: hidden;
+}
+
+.policy-name {
+  font-size: 1.25rem;
+  font-weight: 500;
+  margin-bottom: 8px;
+}
+
+.policy-highlights {
+  margin-bottom: 10px;
+}
+
+.benefit-item {
+  margin-bottom: 8px;
+}
+
+.benefit-label {
+  font-size: 0.8125rem;
+  color: #626976;
+  margin-bottom: 2px;
+}
+
+.benefit-value {
+  font-size: 0.9375rem;
+  font-weight: 500;
+}
+
+.view-details-link {
+  font-size: 0.875rem;
+  color: #206bc4;
+  text-decoration: none;
+}
+
+.view-details-link:hover {
+  text-decoration: underline;
+}
+
+.policy-price {
+  padding: 10px;
+}
+
+.price-label {
+  font-size: 0.8125rem;
+  margin-bottom: 2px;
+}
+
+.price-value {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #206bc4;
+}
+
+.price-note {
+  margin-top: 2px;
+  font-size: 0.75rem;
+}
+
+/* Filter sidebar */
+.form-selectgroup-pills .form-selectgroup-label {
+  font-size: 0.75rem;
+  padding: 0.25rem 0.5rem;
+}
+
+/* Comparison footer */
+.comparison-footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: white;
+  padding: 1rem 0;
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  border-top: 1px solid #e6e7e9;
+}
+
+.comparison-message {
+  font-size: 0.875rem;
+  color: #475569;
+}
+
+/* Policy details offcanvas */
+.offcanvas {
+  max-width: 450px;
+  width: 100%;
+}
+
+.policy-section {
+  border-bottom: 1px solid #e6e7e9;
+  padding-bottom: 1rem;
+}
+
+.section-title {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: #1e293b;
+}
+
+.policy-cta {
+  margin-top: 2rem;
+}
+
+/* Form checkbox for comparison */
+.form-check-input:checked {
+  background-color: #206bc4;
+  border-color: #206bc4;
+}
+
+/* Compare button styling */
+.compare-btn {
+  margin-top: 0.5rem;
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.compare-btn:hover {
+  border-color: #206bc4;
+  color: #206bc4;
+}
+
+.compare-btn .check-icon {
+  display: none;
+  margin-right: 6px;
+  color: #206bc4;
+}
+
+.compare-btn .uncheck-icon {
+  display: inline-block;
+  margin-right: 6px;
+  color: #475569;
+}
+
+.compare-btn:has(input:checked) {
+  background-color: #edf2fa;
+  color: #206bc4;
+  border-color: #206bc4;
+}
+
+.compare-btn:has(input:checked) .check-icon {
+  display: inline-block;
+}
+
+.compare-btn:has(input:checked) .uncheck-icon {
+  display: none;
+}
+
 /* Input Spacing */
 .form-group {
   margin-bottom: 1rem;
