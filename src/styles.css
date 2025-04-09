@@ -388,6 +388,77 @@ img {
   font-size: 0.75rem;
 }
 
+/* Policy Benefits Styling */
+.policy-benefits {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 0;
+  text-align: center;
+  border-radius: 4px;
+}
+
+.policy-benefits .benefit-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 33.333%;
+  padding: 0.5rem;
+}
+
+.policy-benefits .benefit-label {
+  font-weight: 700;
+  font-size: 1.125rem;
+  margin-bottom: 0.75rem;
+  color: #1e293b;
+}
+
+.policy-benefits .benefit-icon {
+  margin-bottom: 0.75rem;
+  color: #475569;
+  opacity: 0.8;
+}
+
+.policy-benefits .benefit-icon svg {
+  width: 30px;
+  height: 30px;
+  stroke-width: 1.5;
+}
+
+.policy-benefits .benefit-value {
+  font-weight: 600;
+  font-size: 1.125rem;
+  color: #475569;
+}
+
+.policy-benefits .benefit-divider {
+  width: 2px;
+  height: 80px;
+  background-color: #2563eb;
+  margin: 0 0.75rem;
+  opacity: 1;
+}
+
+/* Mobile Responsiveness for Policy Benefits */
+@media (max-width: 768px) {
+  .policy-benefits {
+    flex-direction: column;
+  }
+  
+  .policy-benefits .benefit-item {
+    width: 100%;
+    padding: 0.5rem;
+  }
+  
+  .policy-benefits .benefit-divider {
+    width: 80%;
+    height: 2px;
+    background-color: #2563eb;
+    margin: 0.5rem 0;
+  }
+}
+
 /* Filter sidebar */
 .form-selectgroup-pills .form-selectgroup-label {
   font-size: 0.75rem;
