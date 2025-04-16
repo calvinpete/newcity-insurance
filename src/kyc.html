@@ -1,0 +1,883 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Complete Your Purchase - Newcity Travel Insurance</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/core@1.0.0-beta17/dist/css/tabler.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tom-select@2.2.2/dist/css/tom-select.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/litepicker/dist/css/litepicker.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/litepicker/dist/plugins/mobilefriendly.css">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* KYC Page Specific Styles */
+    .trip-cost-card {
+      border: 1px solid rgba(98, 105, 118, 0.16);
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    }
+    
+    .accordion-icon {
+      transition: transform 0.3s ease;
+    }
+    
+    [aria-expanded="true"] .accordion-icon {
+      transform: rotate(180deg);
+    }
+    
+    /* Make sticky positioning work better with top fixed header */
+    .position-sticky {
+      position: sticky;
+      top: 80px;
+      z-index: 10;
+    }
+    
+    /* Better mobile accordion styling */
+    .trip-cost-accordion .card-header {
+      cursor: pointer;
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid rgba(98, 105, 118, 0.16);
+    }
+    
+    .trip-cost-accordion .card-header:hover {
+      background-color: rgba(32, 107, 196, 0.03);
+    }
+    
+    .section-title.mobile {
+      font-weight: 500;
+      margin-bottom: 0.75rem;
+      font-size: 1.1rem;
+    }
+    
+    /* Ensure collapse animations work properly */
+    .collapse {
+      transition: height 0.35s ease;
+    }
+    
+    .collapse:not(.show) {
+      display: none;
+    }
+    
+    .collapse.show {
+      display: block;
+    }
+    
+    .collapsing {
+      height: 0;
+      overflow: hidden;
+      transition: height 0.35s ease;
+    }
+    
+    @media (max-width: 991.98px) {
+      .purchase-form {
+        padding-top: 0;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="page-container">
+    <!-- Header section matching other pages -->
+    <header class="header">
+      <div class="container">
+        <div class="header-content">
+          <div class="logo">
+            <h1><a href="index.html">Newcity Travel Insurance</a></h1>
+          </div>
+
+          <div class="header-right">
+            <div class="account-links">
+              <a href="#" class="btn btn-outline">Log In</a>
+              <a href="#" class="btn btn-primary">Register</a>
+            </div>
+
+            <button class="mobile-menu-toggle">
+              <i class="fas fa-bars"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main KYC content section -->
+    <section class="main-content mt-3">
+      <div class="container">
+        <!-- Back to quotes button -->
+        <div class="row mb-3">
+          <div class="col-12">
+            <a href="quote-list.html" class="btn btn-outline d-inline-flex align-items-center">
+              <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-arrow-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                <path d="M5 12l14 0"></path>
+                <path d="M5 12l6 6"></path>
+                <path d="M5 12l6 -6"></path>
+              </svg>
+              Back to Quotes
+            </a>
+          </div>
+        </div>
+
+        <!-- Purchase header -->
+        <div class="row mb-4">
+          <div class="col-12 text-center">
+            <h3 class="h2">Great choice! Let's complete your purchase.</h3>
+            <a href="comp-policy.html" class="text-primary">View Policy Details</a>
+          </div>
+        </div>
+
+        <!-- Main Form and Trip Cost Card Container -->
+        <div class="row">
+          <!-- KYC Form Column -->
+          <div class="col-lg-8">
+                <form id="purchase-form" class="purchase-form">
+                  <!-- Progress indicator -->
+                  <div class="progress mb-4">
+                    <div class="progress-bar bg-primary" style="width: 20%" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
+                      <span class="visually-hidden">20% Complete</span>
+                    </div>
+                  </div>
+
+                  <!-- Trip Information Section -->
+                  <div class="section mb-4">
+                    <h4 class="section-title mb-3">Your Trip Information</h4>
+                    <div class="card shadow-none border">
+                      <div class="card-body">
+                        <div class="row g-3">
+                          <div class="col-md-6">
+                            <div class="trip-info-item">
+                              <div class="trip-info-label">Trip Dates</div>
+                              <div class="trip-info-value">15.05.2025 - 25.05.2025</div>
+                              <div class="trip-info-note">11 days</div>
+                            </div>
+                          </div>
+                          <div class="col-md-6">
+                            <div class="trip-info-item">
+                              <div class="trip-info-label">Destination</div>
+                              <div class="trip-info-value">Kenya, Tanzania</div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <!-- Mobile Accordion Trip Cost Card (appears after trip info) -->
+                  <div class="d-lg-none mb-4">
+                    <h5 class="section-title mobile">Trip Cost Details</h5>
+                    <div class="card trip-cost-accordion">
+                      <div class="card-header bg-white" id="tripCostHeader">
+                        <div class="d-flex justify-content-between align-items-center" role="button" aria-expanded="false" aria-controls="tripCostContent">
+                          <div>
+                            <h6 class="mb-0">Total Price</h6>
+                          </div>
+                          <div class="d-flex align-items-center">
+                            <h5 class="mb-0 me-3 fw-bold">$58.25</h5>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-down accordion-icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                              <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                              <polyline points="6 9 12 15 18 9"></polyline>
+                            </svg>
+                          </div>
+                        </div>
+                      </div>
+                      <div id="tripCostContent" class="collapse" aria-labelledby="tripCostHeader" style="display: none;">
+                        <div class="card-body">
+                          <div class="policy-summary d-flex align-items-center mb-4">
+                            <div class="provider-logo me-3">
+                              <img src="https://via.placeholder.com/80x50?text=Provider" alt="Insurance Provider" class="img-fluid">
+                            </div>
+                            <div>
+                              <h6 class="mb-1">Premium Plan</h6>
+                              <p class="mb-0 text-muted">Policy #TL-2023456789</p>
+                            </div>
+                          </div>
+                          <div class="cost-breakdown mb-3">
+                            <div class="row border-bottom py-2">
+                              <div class="col-8">Premium (2 travelers)</div>
+                              <div class="col-4 text-end">$52.00</div>
+                            </div>
+                            <div class="row py-2 fw-bold">
+                              <div class="col-8">Total</div>
+                              <div class="col-4 text-end">$52.00</div>
+                            </div>
+                          </div>
+                          
+                          <div class="coverage-summary">
+                            <h6 class="mb-3">Coverage Summary</h6>
+                            <div class="row g-2">
+                              <div class="col-md-6">
+                                <div class="coverage-item p-2 border rounded">
+                                  <div class="small text-muted">Trip Cancellation</div>
+                                  <div class="fw-medium">Up to $10,000</div>
+                                </div>
+                              </div>
+                              <div class="col-md-6">
+                                <div class="coverage-item p-2 border rounded">
+                                  <div class="small text-muted">Emergency Medical</div>
+                                  <div class="fw-medium">$100,000</div>
+                                </div>
+                              </div>
+                              <div class="col-md-6">
+                                <div class="coverage-item p-2 border rounded">
+                                  <div class="small text-muted">Baggage Loss</div>
+                                  <div class="fw-medium">$1,500</div>
+                                </div>
+                              </div>
+                              <div class="col-md-6">
+                                <div class="coverage-item p-2 border rounded">
+                                  <div class="small text-muted">Trip Delay</div>
+                                  <div class="fw-medium">$500 ($150/day)</div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="text-center mt-3">
+                              <a href="#" class="btn btn-sm btn-outline-primary" data-bs-toggle="offcanvas" data-bs-target="#policyDetails">View Policy Details</a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Traveler 1 Information -->
+                  <div class="section mb-4">
+                    <h5 class="section-title mb-3">Traveler 1 Information</h5>
+                    <div class="card shadow-none border">
+                      <div class="card-body">
+                        <div class="row g-3">
+                          <div class="col-md-6">
+                            <div class="form-group">
+                              <label for="traveler1-firstname" class="form-label">First Name <span class="text-danger">*</span></label>
+                              <input type="text" class="form-control" id="traveler1-firstname" required>
+                            </div>
+                          </div>
+                          <div class="col-md-6">
+                            <div class="form-group">
+                              <label for="traveler1-lastname" class="form-label">Last Name <span class="text-danger">*</span></label>
+                              <input type="text" class="form-control" id="traveler1-lastname" required>
+                            </div>
+                          </div>
+                          <div class="col-md-6">
+                            <div class="form-group">
+                              <label for="traveler1-dob" class="form-label">Date of Birth <span class="text-danger">*</span></label>
+                              <input type="text" class="form-control" id="traveler1-dob" placeholder="DD.MM.YYYY" required>
+                            </div>
+                          </div>
+                          <div class="col-md-6">
+                            <div class="form-group">
+                              <label for="traveler1-citizen" class="form-label">Citizenship <span class="text-danger">*</span></label>
+                              <select class="form-select" id="traveler1-citizen" required>
+                                <option value="">Select...</option>
+                                <option value="Uganda">Uganda</option>
+                                <option value="Kenya">Kenya</option>
+                                <option value="Tanzania">Tanzania</option>
+                                <option value="Rwanda">Rwanda</option>
+                              </select>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Traveler 2 Information -->
+                  <div class="section mb-4">
+                    <h5 class="section-title mb-3">Traveler 2 Information</h5>
+                    <div class="card shadow-none border">
+                      <div class="card-body">
+                        <div class="row g-3">
+                          <div class="col-md-6">
+                            <div class="form-group">
+                              <label for="traveler2-firstname" class="form-label">First Name <span class="text-danger">*</span></label>
+                              <input type="text" class="form-control" id="traveler2-firstname" required>
+                            </div>
+                          </div>
+                          <div class="col-md-6">
+                            <div class="form-group">
+                              <label for="traveler2-lastname" class="form-label">Last Name <span class="text-danger">*</span></label>
+                              <input type="text" class="form-control" id="traveler2-lastname" required>
+                            </div>
+                          </div>
+                          <div class="col-md-6">
+                            <div class="form-group">
+                              <label for="traveler2-dob" class="form-label">Date of Birth <span class="text-danger">*</span></label>
+                              <input type="text" class="form-control" id="traveler2-dob" placeholder="DD.MM.YYYY" required>
+                            </div>
+                          </div>
+                          <div class="col-md-6">
+                            <div class="form-group">
+                              <label for="traveler2-citizen" class="form-label">Citizenship <span class="text-danger">*</span></label>
+                              <select class="form-select" id="traveler2-citizen" required>
+                                <option value="">Select...</option>
+                                <option value="Uganda">Uganda</option>
+                                <option value="Kenya">Kenya</option>
+                                <option value="Tanzania">Tanzania</option>
+                                <option value="Rwanda">Rwanda</option>
+                              </select>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Primary Traveler Contact Information -->
+                  <div class="section mb-4">
+                    <h5 class="section-title mb-3">Primary Traveler Information</h5>
+                    <div class="card shadow-none border">
+                      <div class="card-body">
+                        <div class="row g-3">
+                          <div class="col-md-6">
+                            <div class="form-group">
+                              <label for="email" class="form-label">Email Address <span class="text-danger">*</span></label>
+                              <input type="email" class="form-control" id="email" required>
+                            </div>
+                          </div>
+                          <div class="col-md-6">
+                            <div class="form-group">
+                              <label for="phone" class="form-label">Phone Number <span class="text-danger">*</span></label>
+                              <input type="tel" class="form-control" id="phone" required>
+                            </div>
+                          </div>
+                          <div class="col-md-6">
+                            <div class="form-group">
+                              <label for="alt-phone" class="form-label">Alternate Phone Number</label>
+                              <input type="tel" class="form-control" id="alt-phone">
+                            </div>
+                          </div>
+                          <div class="col-md-6">
+                            <div class="form-group">
+                              <label for="alt-email" class="form-label">Additional Email Address</label>
+                              <input type="email" class="form-control" id="alt-email">
+                            </div>
+                          </div>
+                          <div class="col-md-12">
+                            <div class="form-group">
+                              <label for="address" class="form-label">Address <span class="text-danger">*</span></label>
+                              <input type="text" class="form-control" id="address" required>
+                            </div>
+                          </div>
+                          <div class="col-md-6">
+                            <div class="form-group">
+                              <label for="city" class="form-label">City <span class="text-danger">*</span></label>
+                              <input type="text" class="form-control" id="city" required>
+                            </div>
+                          </div>
+                          <div class="col-md-6">
+                            <div class="form-group">
+                              <label for="country" class="form-label">Country <span class="text-danger">*</span></label>
+                              <select class="form-select" id="country" required>
+                                <option value="">Select...</option>
+                                <option value="Uganda">Uganda</option>
+                                <option value="Kenya">Kenya</option>
+                                <option value="Tanzania">Tanzania</option>
+                                <option value="Rwanda">Rwanda</option>
+                              </select>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+
+
+                  <!-- Payment Method Section -->
+                  <div class="section mb-4">
+                    <h5 class="section-title mb-3">
+                      Payment Method
+                      <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-lock" width="20" height="20" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                        <path d="M5 13a2 2 0 0 1 2 -2h10a2 2 0 0 1 2 2v6a2 2 0 0 1 -2 2h-10a2 2 0 0 1 -2 -2v-6z"></path>
+                        <path d="M11 16a1 1 0 1 0 2 0a1 1 0 0 0 -2 0"></path>
+                        <path d="M8 11v-4a4 4 0 1 1 8 0v4"></path>
+                      </svg>
+                    </h5>
+                    <div class="card shadow-none border">
+                      <div class="card-body">
+                        <!-- Payment Mode Dropdown -->
+                        <div class="mb-4">
+                          <label for="payment-mode" class="form-label">Payment Modes</label>
+                          <select id="payment-mode" class="form-select" style="background-color: #fff;">
+                            <option value="mobile-money">Mobile Money</option>
+                            <option value="bank-transfer">Bank Transfer</option>
+                            <option value="card">Card Option</option>
+                          </select>
+                        </div>
+                        
+                        <!-- Mobile Money Payment Option -->
+                        <div id="mobile-money-section" class="payment-section">
+                          <div class="mb-3">
+                            <label for="mobile-number" class="form-label">Phone Number</label>
+                            <input type="tel" id="mobile-number" class="form-control" placeholder="Phone Number">
+                          </div>
+                        </div>
+                        
+                        <!-- Bank Transfer Payment Option -->
+                        <div id="bank-transfer-section" class="payment-section" style="display: none;">
+                          <div class="card bg-light mb-3">
+                            <div class="card-body">
+                              <h6 class="card-subtitle mb-2">Bank Account Information:</h6>
+                              <p class="mb-1"><strong>Bank:</strong> Newcity Bank</p>
+                              <p class="mb-1"><strong>Account Name:</strong> Newcity Insurance Ltd</p>
+                              <p class="mb-1"><strong>Account Number:</strong> 12345678900</p>
+                              <p class="mb-1"><strong>Reference:</strong> TL-2023456789</p>
+                            </div>
+                          </div>
+                          
+                          <div class="mb-3">
+                            <a href="#" class="btn btn-outline-primary" target="_blank">Go to Online Banking</a>
+                          </div>
+                          
+                          <div class="mb-3">
+                            <label for="proof-of-payment" class="form-label">Upload Proof of Payment</label>
+                            <input type="file" id="proof-of-payment" class="form-control">
+                            <small class="form-text text-muted">Please upload your bank transfer receipt or screenshot.</small>
+                          </div>
+                        </div>
+                        
+                        <!-- Card Payment Option -->
+                        <div id="card-section" class="payment-section" style="display: none;">
+                          <div class="row g-3">
+                            <div class="col-md-6">
+                              <div class="form-group">
+                                <label for="cc-name" class="form-label">Cardholder Name <span class="text-danger">*</span></label>
+                                <input type="text" class="form-control" id="cc-name" required>
+                              </div>
+                            </div>
+                            <div class="col-md-6">
+                              <div class="form-group">
+                                <label for="cc-number" class="form-label">Card Number <span class="text-danger">*</span></label>
+                                <input type="text" class="form-control" id="cc-number" placeholder="XXXX XXXX XXXX XXXX" required>
+                              </div>
+                            </div>
+                            <div class="col-md-4">
+                              <div class="form-group">
+                                <label for="cc-expiry-month" class="form-label">Expiry Month <span class="text-danger">*</span></label>
+                                <select class="form-select" id="cc-expiry-month" required>
+                                  <option value="">MM</option>
+                                  <option value="01">01</option>
+                                  <option value="02">02</option>
+                                  <option value="03">03</option>
+                                  <option value="04">04</option>
+                                  <option value="05">05</option>
+                                  <option value="06">06</option>
+                                  <option value="07">07</option>
+                                  <option value="08">08</option>
+                                  <option value="09">09</option>
+                                  <option value="10">10</option>
+                                  <option value="11">11</option>
+                                  <option value="12">12</option>
+                                </select>
+                              </div>
+                            </div>
+                            <div class="col-md-4">
+                              <div class="form-group">
+                                <label for="cc-expiry-year" class="form-label">Expiry Year <span class="text-danger">*</span></label>
+                                <select class="form-select" id="cc-expiry-year" required>
+                                  <option value="">YYYY</option>
+                                  <option value="2025">2025</option>
+                                  <option value="2026">2026</option>
+                                  <option value="2027">2027</option>
+                                  <option value="2028">2028</option>
+                                  <option value="2029">2029</option>
+                                  <option value="2030">2030</option>
+                                  <option value="2031">2031</option>
+                                  <option value="2032">2032</option>
+                                  <option value="2033">2033</option>
+                                  <option value="2034">2034</option>
+                                </select>
+                              </div>
+                            </div>
+                            <div class="col-md-4">
+                              <div class="form-group">
+                                <label for="cc-cvv" class="form-label">Security Code <span class="text-danger">*</span></label>
+                                <input type="text" class="form-control" id="cc-cvv" placeholder="CVV" required>
+                                <small class="form-text text-muted">The 3-digit security code on the back of the card.</small>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Review & Acknowledge Section -->
+                  <div class="section mb-4">
+                    <h5 class="section-title mb-3">Review & Acknowledge</h5>
+                    <div class="card shadow-none border">
+                      <div class="card-body">
+                        <div class="row g-3">
+                          <div class="col-12">
+                            <div class="disclaimer p-3 bg-light rounded mb-3">
+                              <p class="mb-2"><strong>Please review the  <a href="#" class="text-primary">Terms and Conditions</a>:</strong></p>
+                              <p class="mb-2">I accept your Privacy Notice and understand that I can learn more about how you protect my personal data by reading the Privacy Notice. I acknowledge that I am aware about the importance of obtaining insurance advice from a licensed and registered insurance consultant with the authority before buying any insurance product.</p>
+                              
+                              <!-- <p class="mb-2 mt-3"><strong>Provider Disclaimer:</strong></p>
+                              <p class="small">This is only a brief description of the coverage(s) available. The policy will contain reductions, limitations, exclusions, and termination provisions. Full details of the coverage are contained in the policy. If there are any conflicts or discrepancies between this document and the policy or if any point is not covered in this document, the terms and conditions of the policy shall govern.</p> -->
+                            </div>
+                          </div>
+                          <div class="col-12">
+                            <div class="form-check">
+                              <input class="form-check-input" type="checkbox" id="terms-agree" required>
+                              <label class="form-check-label" for="terms-agree">
+                                I have read and agree to the <a href="#" class="text-primary">Terms and Conditions</a>
+                              </label>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+
+
+                  <!-- Submit Button -->
+                  <div class="form-actions">
+                    <button type="submit" class="btn btn-primary w-100">Purchase Insurance</button>
+                  </div>
+                </form>
+          </div>
+            
+          <!-- Trip Cost Card Column - Fixed on desktop, accordion on mobile -->
+          <div class="col-lg-4 d-none d-lg-block">
+            <div class="card trip-cost-card position-sticky" style="top: 80px;">
+              <div class="card-body">
+                <h5 class="card-title mb-3">Trip Cost Details</h5>
+                
+                <div class="policy-summary d-flex align-items-center mb-4">
+                  <div class="provider-logo me-3">
+                    <img src="https://via.placeholder.com/80x50?text=Provider" alt="Insurance Provider" class="img-fluid">
+                  </div>
+                  <div>
+                    <h6 class="mb-1">Premium Plan</h6>
+                    <p class="mb-0 text-muted">Policy #TL-2023456789</p>
+                  </div>
+                </div>
+                
+                <div class="cost-breakdown mb-3">
+                  <div class="row border-bottom py-2">
+                    <div class="col-8">Premium (2 travelers)</div>
+                    <div class="col-4 text-end">$52.00</div>
+                  </div>
+                  <div class="row py-2 fw-bold">
+                    <div class="col-8">Total</div>
+                    <div class="col-4 text-end">$52.00</div>
+                  </div>
+                </div>
+                
+                <div class="coverage-summary">
+                  <h6 class="mb-3">Coverage Summary</h6>
+                  <div class="row g-2">
+                    <div class="col-12">
+                      <div class="coverage-item p-2 border rounded">
+                        <div class="small text-muted">Trip Cancellation</div>
+                        <div class="fw-medium">Up to $10,000</div>
+                      </div>
+                    </div>
+                    <div class="col-12">
+                      <div class="coverage-item p-2 border rounded">
+                        <div class="small text-muted">Emergency Medical</div>
+                        <div class="fw-medium">$100,000</div>
+                      </div>
+                    </div>
+                    <div class="col-12">
+                      <div class="coverage-item p-2 border rounded">
+                        <div class="small text-muted">Baggage Loss</div>
+                        <div class="fw-medium">$1,500</div>
+                      </div>
+                    </div>
+                    <div class="col-12">
+                      <div class="coverage-item p-2 border rounded">
+                        <div class="small text-muted">Trip Delay</div>
+                        <div class="fw-medium">$500 ($150/day)</div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="text-center mt-3">
+                    <a href="#" class="btn btn-sm btn-outline-primary" data-bs-toggle="offcanvas" data-bs-target="#policyDetails">View Policy Details</a>
+                  </div>
+                </div>
+                
+                <!-- Total Amount -->
+                <div class="mt-4">
+                  <div class="bg-primary text-white p-3 rounded">
+                    <div class="d-flex justify-content-between align-items-center">
+                      <div>
+                        <h5 class="mb-0">Total Amount:</h5>
+                      </div>
+                      <h3 class="mb-0">$58.25</h3>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- Add Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- JavaScript dependencies -->
+  <script src="https://cdn.jsdelivr.net/npm/@tabler/core@1.0.0-beta17/dist/js/tabler.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/tom-select@2.2.2/dist/js/tom-select.complete.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/litepicker/dist/litepicker.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/inputmask@5.0.7/dist/inputmask.min.js"></script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      // Initialize date inputs with both Litepicker and Inputmask according to user's requirements
+      const dateInputs = document.querySelectorAll('input[id$="-dob"]');
+      dateInputs.forEach(input => {
+        // Apply Inputmask for format guidance
+        Inputmask({
+          mask: "99.99.9999",
+          placeholder: "DD.MM.YYYY",
+          clearIncomplete: true
+        }).mask(input);
+        
+        // Apply Litepicker for calendar selection
+        new Litepicker({
+          element: input,
+          format: 'DD.MM.YYYY',
+          singleMode: true,
+          dropdowns: { minYear: 1920, maxYear: 2010, months: true, years: true },
+          plugins: ['mobilefriendly']
+        });
+      });
+      
+      // Set up trip dates field with the combined Inputmask and Litepicker pattern from user's memory
+      // Note: This part is implementing the specific requirement from the user's memory about date range format
+      const tripDatesInput = document.getElementById('trip-dates');
+      if (tripDatesInput) {
+        // Apply Inputmask for format guidance during typing
+        Inputmask({
+          mask: "99.99.9999 - 99.99.9999",
+          placeholder: "DD.MM.YYYY - DD.MM.YYYY",
+          clearIncomplete: true
+        }).mask(tripDatesInput);
+        
+        // Apply Litepicker for calendar selection
+        new Litepicker({
+          element: tripDatesInput,
+          format: 'DD.MM.YYYY',
+          singleMode: false,
+          separator: ' - ',
+          numberOfMonths: 2,
+          numberOfColumns: 2,
+          plugins: ['mobilefriendly'],
+          minDate: new Date()
+        });
+      }
+
+      // Initialize credit card input mask
+      Inputmask({
+        mask: "9999 9999 9999 9999",
+        placeholder: "XXXX XXXX XXXX XXXX",
+        clearIncomplete: true
+      }).mask(document.getElementById('cc-number'));
+
+      // Initialize CVV input mask
+      Inputmask({
+        mask: "999[9]",
+        clearIncomplete: true
+      }).mask(document.getElementById('cc-cvv'));
+      
+      // Direct DOM manipulation for accordion functionality
+      const accordionHeader = document.getElementById('tripCostHeader');
+      if (accordionHeader) {
+        accordionHeader.addEventListener('click', function() {
+          const content = document.getElementById('tripCostContent');
+          const header = this.querySelector('[aria-expanded]');
+          const isExpanded = header.getAttribute('aria-expanded') === 'true';
+          
+          // Toggle expanded state
+          header.setAttribute('aria-expanded', !isExpanded);
+          
+          // Direct style manipulation for guaranteed visibility
+          if (isExpanded) {
+            // Collapse
+            content.style.display = 'none';
+            this.querySelector('.accordion-icon').style.transform = 'rotate(0deg)';
+          } else {
+            // Expand
+            content.style.display = 'block';
+            this.querySelector('.accordion-icon').style.transform = 'rotate(180deg)';
+          }
+        });
+      }
+
+      // Payment method selection handling
+      const paymentModeSelect = document.getElementById('payment-mode');
+      const mobileMoney = document.getElementById('mobile-money-section');
+      const bankTransfer = document.getElementById('bank-transfer-section');
+      const cardSection = document.getElementById('card-section');
+      
+      function handlePaymentSelection() {
+        const selectedValue = paymentModeSelect.value;
+        
+        // Hide all payment sections first
+        mobileMoney.style.display = 'none';
+        bankTransfer.style.display = 'none';
+        cardSection.style.display = 'none';
+        
+        // Show the selected payment section
+        if (selectedValue === 'mobile-money') {
+          mobileMoney.style.display = 'block';
+        } else if (selectedValue === 'bank-transfer') {
+          bankTransfer.style.display = 'block';
+        } else if (selectedValue === 'card') {
+          cardSection.style.display = 'block';
+        }
+      }
+      
+      // Set up initial payment section display
+      handlePaymentSelection();
+      
+      // Listen for changes to the payment method dropdown
+      if (paymentModeSelect) {
+        paymentModeSelect.addEventListener('change', handlePaymentSelection);
+      }
+      
+      // Mobile number input masking
+      if (document.getElementById('mobile-number')) {
+        Inputmask({
+          mask: "999 999 999",
+          placeholder: "___ ___ ___",
+          clearIncomplete: true
+        }).mask(document.getElementById('mobile-number'));
+      }
+      
+      // Form submission
+      document.getElementById('purchase-form').addEventListener('submit', function(e) {
+        e.preventDefault();
+        alert('Your purchase has been completed! A confirmation email will be sent shortly.');
+        // In a real application, you would send the form data to the server here
+      });
+    });
+  </script>
+  <!-- Offcanvas Policy Details -->
+  <div class="offcanvas offcanvas-end" tabindex="-1" id="policyDetails" aria-labelledby="policyDetailsLabel">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title" id="policyDetailsLabel">Gold Travel Protection Plan</h5>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+      <!-- Coverage Benefits -->
+      <div class="mb-4">
+        <h6 class="mb-3">Coverage Benefits</h6>
+        <div class="table-responsive">
+          <table class="table table-vcenter card-table">
+            <tbody>
+              <tr>
+                <td>Trip Cancellation</td>
+                <td class="text-end">Up to $10,000</td>
+              </tr>
+              <tr>
+                <td>Trip Interruption</td>
+                <td class="text-end">Up to $10,000</td>
+              </tr>
+              <tr>
+                <td>Trip Delay</td>
+                <td class="text-end">$500 ($150/day)</td>
+              </tr>
+              <tr>
+                <td>Emergency Medical</td>
+                <td class="text-end">$100,000</td>
+              </tr>
+              <tr>
+                <td>Emergency Evacuation</td>
+                <td class="text-end">$1,000,000</td>
+              </tr>
+              <tr>
+                <td>Baggage Loss</td>
+                <td class="text-end">$1,500</td>
+              </tr>
+              <tr>
+                <td>Baggage Delay</td>
+                <td class="text-end">$500</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      
+      <!-- Policy Documents -->
+      <div class="mb-4">
+        <h6 class="mb-3">Policy Documents</h6>
+        <div class="list-group list-group-flush">
+          <a href="#" class="list-group-item list-group-item-action">
+            <div class="row align-items-center">
+              <div class="col-auto"><span class="badge bg-primary">PDF</span></div>
+              <div class="col text-truncate">
+                <span class="text-body d-block">Full Policy Document</span>
+                <small class="d-block text-muted text-truncate">View complete coverage details</small>
+              </div>
+            </div>
+          </a>
+          <a href="#" class="list-group-item list-group-item-action">
+            <div class="row align-items-center">
+              <div class="col-auto"><span class="badge bg-primary">PDF</span></div>
+              <div class="col text-truncate">
+                <span class="text-body d-block">Coverage Summary</span>
+                <small class="d-block text-muted text-truncate">Quick overview of your benefits</small>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+      
+      <!-- Policy FAQ -->
+      <div class="mb-4">
+        <h6 class="mb-3">Frequently Asked Questions</h6>
+        <div class="accordion" id="accordionExample">
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne">
+                What if I need to cancel my trip?
+              </button>
+            </h2>
+            <div id="collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+              <div class="accordion-body">
+                If you need to cancel your trip for a covered reason, you can be reimbursed up to 100% of your insured trip cost.
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo">
+                How do I file a claim?
+              </button>
+            </h2>
+            <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+              <div class="accordion-body">
+                You can file a claim online through our customer portal or by calling our 24/7 customer service line.
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree">
+                Can I extend my coverage period?
+              </button>
+            </h2>
+            <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+              <div class="accordion-body">
+                Yes, you can extend your coverage period by contacting our customer service before your original coverage ends.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
