@@ -465,6 +465,97 @@ img {
   padding: 0.25rem 0.5rem;
 }
 
+/* Policy Comparison Styles */
+.category-header .accordion-button .benefit-name {
+  font-weight: 500;
+  font-size: 1rem;
+}
+
+.category-header .accordion-button {
+  padding: 0;
+}
+
+.category-header .accordion-button .row {
+  padding: 0.75rem 0;
+}
+
+.category-header .accordion-button .benefit-value {
+  font-weight: 600;
+  color: #206bc4;
+}
+
+.policy-comparison-header {
+  border-bottom: 1px solid rgba(98, 105, 118, 0.16);
+}
+
+.policy-feature-column {
+  background-color: #f8f9fa;
+}
+
+.benefit-category {
+  border-bottom: 1px solid rgba(98, 105, 118, 0.16);
+}
+
+/* Category Summary Styles */
+.category-summary {
+  background-color: #f0f7ff;
+  border-top: 1px solid #dee2e6;
+  margin-top: -1px;
+}
+
+.category-summary .benefit-value {
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: #0d6efd;
+}
+
+.benefit-category-header {
+  border-bottom: 1px solid rgba(98, 105, 118, 0.16);
+}
+
+.benefit-item {
+  border-bottom: 1px solid rgba(98, 105, 118, 0.06);
+}
+
+.benefit-item:last-child {
+  border-bottom: none;
+}
+
+.benefit-name {
+  font-weight: 500;
+}
+
+.benefit-value {
+  font-weight: 600;
+  color: #1e293b;
+}
+
+.benefit-note {
+  font-size: 0.75rem;
+  color: #64748b;
+  margin-top: 0.25rem;
+}
+
+.price-tag {
+  font-weight: 700;
+  color: #1e293b;
+  font-size: 1.25rem;
+}
+
+/* For smaller screens, stack the policies */
+@media (max-width: 768px) {
+  .policy-feature-column {
+    width: 100%;
+    border-right: none !important;
+    border-bottom: 1px solid rgba(98, 105, 118, 0.16);
+  }
+  
+  .policy-column {
+    width: 100%;
+    border-bottom: 1px solid rgba(98, 105, 118, 0.16);
+  }
+}
+
 /* Comparison footer */
 .comparison-footer {
   position: fixed;
